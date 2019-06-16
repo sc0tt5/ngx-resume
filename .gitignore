@@ -45,5 +45,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# db.json (to prevent publishing private resume data)
-db.json
+# to prevent publishing private resume data
+# db.json
+
