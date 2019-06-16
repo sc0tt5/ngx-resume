@@ -1,0 +1,72 @@
+// sidebar container
+// --------------------------------------
+.sidebar {
+    height: var(--main-height);
+    width: var(--sidebar-width);
+    float: right;
+    padding: var(--main-padding) var(--sidebar-horizontal-padding);
+    background-color: var(--side-background-color);
+    font-size: 9pt;
+    // each section (contact info, skills, etc.)
+    &__section {
+        & h2 {
+            text-transform: uppercase;
+        }
+
+        & ul {
+            line-height: 1.75;
+            margin-top: 0.05in;
+            padding-left: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 400;
+
+            & li {
+                & > a {
+                    color: var(--primary-color);
+                    font-style: normal;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: #000;
+                    }
+
+                    & > i {
+                        width: 9pt;
+                        padding-right: 12pt;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// rating container
+// --------------------------------------
+.rating__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+// source code link/message
+// --------------------------------------
+.disclaimer {
+    height: 0.5in;
+    width: calc(var(--sidebar-width) - (var(--sidebar-horizontal-padding) * 2));
+    line-height: 1.5;
+    position: absolute;
+    top: calc(var(--page-height) - 0.5in);
+    left: var(--page-width) - var(--sidebar-width);
+    padding-bottom: var(--title-horizonatal-padding);
+    color: var(--text-light-color);
+    font-size: 7.5pt;
+    text-align: center;
+
+    & a {
+        color: var(--primary-color);
+        font-family: Consolas;
+        text-decoration: none;
+        &:hover {
+            color: #000;
+        }
+    }
+}

@@ -1,0 +1,3 @@
+<div class="dots" [ngClass]="{ 'dots--loaded': dots.length === max }">
+    <div *ngFor="let dot of dots" class="dot" [ngClass]="dot"></div>
+</div>

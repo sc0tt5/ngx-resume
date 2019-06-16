@@ -1,0 +1,165 @@
+{
+    "resume": {
+        "header": {
+            "name": "Edward 'Blackbeard' Teach",
+            "title": "Master of Pirate Ipsum"
+        },
+
+        "intro": "Chase yo-ho-ho hogshead chase guns jury mast strike colors carouser belay Yellow Jack fluke. Swing the lead code of conduct reef main sheet belay pinnace bounty jolly boat Spanish Main brigantine. Long clothes killick starboard provost pink wherry draft nipper ho chantey.",
+
+        "sections": [
+            {
+                "title": "Experience",
+                "list": [
+                    {
+                        "from": "Jan 2016",
+                        "to": "present",
+                        "title": "Captain",
+                        "place": "Some Workplace",
+                        "location": "(remote)",
+                        "bullets": [
+                            {
+                                "item": "Knave bilge water loot scallywag boom ye warp bilge rat cable swing the lead. Smartly Jack Tar landlubber or just lubber jolly boat careen ho furl draught haul wind handsomely. Execution dock lanyard black spot killick barque avast wench sutler measured fer yer chains grog blossom."
+                            },
+                            {
+                                "item": "Jolly boat mutiny Gold Road yard furl pressgang sheet swing the lead come about Brethren of the Coast. No prey, no pay jack man-of-war matey poop deck skysail ballast bring a spring upon her cable fluke furl. Salmagundi sutler provost line man-of-war Jack Tar spike cutlass plunder pinnace."
+                            },
+                            {
+                                "item": "Take a caulk port walk the plank jack avast nipperkin lookout bilged on her anchor cable transom. Boom tender take a caulk Barbary Coast scuppers killick interloper Brethren of the Coast jib chandler. Crack Jennys tea cup grog blossom capstan log heave to cable yo-ho-ho measured fer yer chains lad Privateer."
+                            }
+                        ]
+                    },
+                    {
+                        "from": "Jan 2014",
+                        "to": "Jan 2016",
+                        "title": "Quartermaster",
+                        "place": "Some Workplace",
+                        "location": "Some City, Some Country",
+                        "bullets": [
+                            {
+                                "item": "Scurvy run a shot across the bow spyglass crimp Letter of Marque swing the lead maroon flogging hearties Sink me. Dance the hempen jig salmagundi prow interloper lanyard black jack trysail gun grog spike. Nelsons folly schooner six pounders code of conduct Sea Legs swab doubloon Cat o'nine tails belay jack."
+                            },
+                            {
+                                "item": "Brig bilge chase Gold Road grog blossom walk the plank heave down hornswaggle ho black spot. Handsomely rum keelhaul jib crow's nest reef sails lookout reef Privateer tack. Killick reef me bilge capstan walk the plank parley shrouds dance the hempen jig stern."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Selected Projects",
+                "list": [
+                    {
+                        "from": "Jan 2017",
+                        "to": "Jan 2018",
+                        "title": "Some Project",
+                        "place": "Some workplace",
+                        "location": "Some City, Some Country",
+                        "bullets": [
+                            {
+                                "item": "Starboard tender mizzenmast Brethren of the Coast hogshead reef sails overhaul execution dock dance the hempen jig brig. Case shot Admiral of the Black belaying pin bilge reef Jolly Roger fire in the hole cackle fruit salmagundi Brethren of the Coast. Red ensign blow the man down hardtack boatswain lanyard man-of-war gangplank bowsprit quarter boom."
+                            },
+                            {
+                                "item": "Sloop Chain Shot doubloon salmagundi spanker crow's nest reef sails strike colors transom fluke. Cog maroon pink gangway spanker furl rigging port mizzen brig. Spyglass ye topgallant trysail no prey, no pay Plate Fleet loot chase guns tender gibbet."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Education",
+                "list": [
+                    {
+                        "from": "Jan 2009",
+                        "to": "Jan 2014",
+                        "title": "Ph.D. in Booty",
+                        "place": "Some University",
+                        "location": "Some City, Some Country",
+                        "bullets": [
+                            {
+                                "item": "Landlubber or just lubber weigh anchor flogging snow booty chase capstan gaff broadside main sheet. Heave to cog coxswain scurvy hail-shot pink cutlass Sail ho list sutler. Barkadeer hardtack yardarm ballast log fathom square-rigged gunwalls Jack Ketch gabion."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+
+        "sideBar": [
+            {
+                "title": "Contact Info",
+                "listType": "links",
+                "items": [
+                    {
+                        "icon": "globe",
+                        "href": "//www.pirateipsum.me",
+                        "text": "PirateIpsum.me",
+                        "target": "_blank"
+                    },
+                    {
+                        "icon": "github",
+                        "href": "//en.wikipedia.org/wiki/Blackbeard",
+                        "text": "github.com/YourLink",
+                        "target": "_blank"
+                    },
+                    {
+                        "icon": "linkedin",
+                        "href": "//www.linkedin.com/in/YourLink",
+                        "text": "linkedin.com/in/YourLink",
+                        "target": "_blank"
+                    },
+                    {
+                        "icon": "twitter",
+                        "href": "//www.twitter.com/YourLink",
+                        "text": "twitter.com/YourLink",
+                        "target": "_blank"
+                    },
+                    {
+                        "icon": "envelope",
+                        "href": "mailto:you@YourEmail.com",
+                        "text": "you@YourEmail.com",
+                        "target": "_self"
+                    }
+                ]
+            },
+
+            {
+                "title": "Sailing",
+                "listType": "rating",
+                "items": [
+                    {
+                        "item": "Navigation",
+                        "rating": 5
+                    },
+                    {
+                        "item": "Anchoring",
+                        "rating": 4
+                    },
+                    {
+                        "item": "Fishing",
+                        "rating": 3
+                    }
+                ]
+            },
+
+            {
+                "title": "Battle",
+                "listType": "rating",
+                "items": [
+                    {
+                        "item": "Canon",
+                        "rating": 5
+                    },
+                    {
+                        "item": "Sword",
+                        "rating": 4
+                    },
+                    {
+                        "item": "Fist fighting",
+                        "rating": 3
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,32 @@
+// 1-5 rating/dots
+// --------------------------------------
+
+.dots {
+    height: 6px;
+    margin: 7px 0;
+    opacity: 0;
+
+    & > .dot {
+        height: 7px;
+        width: 7px;
+        float: left;
+        margin: auto 1px;
+        background-color: var(--acent-color);
+        border-radius: 50%;
+
+        &:after {
+            content: '.';
+            visibility: hidden;
+        }
+
+        &.active {
+            background-color: var(--primary-color);
+        }
+    }
+
+    // subtle transition for dots on pageload
+    &--loaded {
+        transition: opacity 500ms ease-in;
+        opacity: 1;
+    }
+}

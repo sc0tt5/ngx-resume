@@ -1,0 +1,36 @@
+<main class="main">
+    <!-- summary -->
+    <summary class="main__intro">
+        {{ intro }}
+    </summary>
+
+    <!-- start: main sections -->
+    <section *ngFor="let section of sections" class="main__block">
+        <h2>
+            {{ section.title }}
+        </h2>
+
+        <!-- start: blocks -->
+        <section *ngFor="let block of section.list" class="blocks">
+            <div class="blocks__date">
+                <span>{{ block.from }} -</span><span>{{ block.to }}</span>
+            </div>
+            <div class="details">
+                <header>
+                    <h3>{{ block.title }}</h3>
+                    <span class="details__place">{{ block.place }}</span>
+                    <span class="details__location">{{ block.location }}</span>
+                </header>
+                <div class="details__list">
+                    <ul>
+                        <li *ngFor="let bullet of block.bullets">
+                            {{ bullet.item }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- end: blocks -->
+    </section>
+    <!-- end: sections -->
+</main>

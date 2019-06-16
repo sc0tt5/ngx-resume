@@ -1,0 +1,115 @@
+$small-font: 8pt;
+
+// main container
+// --------------------------------------
+.main {
+    height: var(--main-height);
+    width: var(--main-width);
+    padding: var(--main-padding) 0.25in 0 var(--main-padding);
+    float: left;
+    font-size: 9pt;
+
+    &__intro {
+        position: relative;
+    }
+    // each section within main
+    &__block {
+        margin-top: 0.1in;
+    }
+
+    & h2 {
+        position: relative;
+        text-transform: uppercase;
+    }
+}
+
+// main > blocks (each company, project, etc.)
+// --------------------------------------
+.blocks {
+    display: flex;
+    flex-flow: row nowrap;
+
+    & > div {
+        padding-top: var(--blocks-padding-top);
+    }
+
+    &:last-child .decorator {
+        margin-bottom: 0.25in;
+    }
+
+    &__date {
+        flex: 0 0 var(--date-block-width);
+        line-height: 1;
+        font-size: $small-font;
+        font-weight: 400;
+
+        & span {
+            display: block;
+
+            &:nth-child(2)::before {
+                height: 2pt;
+                display: block;
+                position: relative;
+                top: 1pt;
+                content: ' ';
+            }
+        }
+    }
+}
+
+// main > blocks > list (bullets)
+// --------------------------------------
+.details {
+    flex: 1 0 0;
+
+    & div {
+        clear: both;
+    }
+
+    & header {
+        color: #000;
+    }
+
+    & h3 {
+        font-size: 9.25pt;
+    }
+
+    &__place {
+        float: left;
+        font-size: $small-font;
+    }
+
+    &__location {
+        float: right;
+        font-size: $small-font;
+
+        &::before {
+            display: inline-block;
+            position: relative;
+            right: 3pt;
+            top: 0.25pt;
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: inherit;
+            content: '\f041';
+        }
+    }
+
+    &__list {
+        & ul {
+            padding-left: 0.07in;
+            margin: 0.08in 0;
+        }
+
+        & li {
+            margin: 0 0 0.025in 0.025in;
+        }
+
+        & li::before {
+            position: relative;
+            margin-left: var(--custom-bullet-margin-left);
+            content: '• ';
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<div *ngIf="!(resume$ | async)?.length" class="app-container">
+    <app-header [header]="(resume$ | async)?.header"></app-header>
+    <app-main
+        [sections]="(resume$ | async)?.sections"
+        [intro]="(resume$ | async)?.intro"
+    ></app-main>
+    <app-sidebar [sections]="(resume$ | async)?.sideBar"></app-sidebar>
+</div>
