@@ -18,7 +18,7 @@ You'll need node and npm to run this app.
 
 #### Updating data (db.json)
 
-I might eventually create a UI for updating the resume data, which is stored in the db.json file. For now, after cloning the repo you will need to update the json file with your résumé data. I highly recommend adding the db.json file to your .gitignore unless you are ok to have this data exposed publicly.
+After cloning the repo you will need to update the json file with your résumé data. I highly recommend adding the db.json file to your .gitignore unless you are ok to have this data exposed publicly.
 
 #### Testing
 
