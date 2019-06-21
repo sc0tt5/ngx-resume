@@ -1,9 +1,4 @@
 <main class="main">
-    <!-- summary -->
-    <summary class="main__intro">
-        {{ intro }}
-    </summary>
-
     <!-- start: main sections -->
     <section *ngFor="let section of sections" class="main__block">
         <h2>
@@ -16,11 +11,11 @@
                 <span>{{ block.from }} -</span><span>{{ block.to }}</span>
             </div>
             <div class="details">
-                <header>
+                <div>
                     <h3>{{ block.title }}</h3>
                     <span class="details__place">{{ block.place }}</span>
                     <span class="details__location">{{ block.location }}</span>
-                </header>
+                </div>
                 <div class="details__list">
                     <ul>
                         <li *ngFor="let bullet of block.bullets">

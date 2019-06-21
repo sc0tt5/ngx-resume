@@ -7,14 +7,14 @@ $small-font: 8pt;
     width: var(--main-width);
     padding: var(--main-padding) 0.25in 0 var(--main-padding);
     float: left;
-    font-size: 9pt;
 
-    &__intro {
-        position: relative;
+    &__intro > p {
+        margin: 0 auto;
+        padding-top: var(--blocks-padding-top);
     }
     // each section within main
     &__block {
-        margin-top: 0.1in;
+        margin-bottom: 12pt;
     }
 
     & h2 {
@@ -28,6 +28,7 @@ $small-font: 8pt;
 .blocks {
     display: flex;
     flex-flow: row nowrap;
+    margin-top: 2pt;
 
     & > div {
         padding-top: var(--blocks-padding-top);
@@ -39,9 +40,9 @@ $small-font: 8pt;
 
     &__date {
         flex: 0 0 var(--date-block-width);
-        line-height: 1;
+        line-height: 1.3;
         font-size: $small-font;
-        font-weight: 400;
+        font-weight: 600;
 
         & span {
             display: block;
@@ -70,33 +71,26 @@ $small-font: 8pt;
         color: #000;
     }
 
-    & h3 {
-        font-size: 9.25pt;
-    }
-
     &__place {
-        float: left;
         font-size: $small-font;
     }
 
     &__location {
-        float: right;
+        color: var(--text-light-color);
         font-size: $small-font;
 
         &::before {
-            display: inline-block;
             position: relative;
-            right: 3pt;
-            top: 0.25pt;
-            font-family: FontAwesome;
             font-weight: normal;
             font-style: normal;
             text-decoration: inherit;
-            content: '\f041';
+            content: '  | ';
         }
     }
 
     &__list {
+        font-size: 9pt;
+
         & ul {
             padding-left: 0.07in;
             margin: 0.08in 0;

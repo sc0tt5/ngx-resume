@@ -17,7 +17,7 @@ export class RatingComponent implements OnInit {
         this.buildDots();
     }
 
-    // TODO: unit test for rating component
+    // TODO: unit test for rating component buildDots
     buildDots() {
         interval(0)
             .pipe(take(this.max))

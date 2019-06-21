@@ -5,8 +5,6 @@
             "title": "Master of Pirate Ipsum"
         },
 
-        "intro": "Chase yo-ho-ho hogshead chase guns jury mast strike colors carouser belay Yellow Jack fluke. Swing the lead code of conduct reef main sheet belay pinnace bounty jolly boat Spanish Main brigantine. Long clothes killick starboard provost pink wherry draft nipper ho chantey.",
-
         "sections": [
             {
                 "title": "Experience",
@@ -87,38 +85,11 @@
 
         "sideBar": [
             {
-                "title": "Contact Info",
-                "listType": "links",
+                "title": "About Me",
+                "listType": "paragraph",
                 "items": [
                     {
-                        "icon": "globe",
-                        "href": "//www.pirateipsum.me",
-                        "text": "PirateIpsum.me",
-                        "target": "_blank"
-                    },
-                    {
-                        "icon": "github",
-                        "href": "//en.wikipedia.org/wiki/Blackbeard",
-                        "text": "github.com/YourLink",
-                        "target": "_blank"
-                    },
-                    {
-                        "icon": "linkedin",
-                        "href": "//www.linkedin.com/in/YourLink",
-                        "text": "linkedin.com/in/YourLink",
-                        "target": "_blank"
-                    },
-                    {
-                        "icon": "twitter",
-                        "href": "//www.twitter.com/YourLink",
-                        "text": "twitter.com/YourLink",
-                        "target": "_blank"
-                    },
-                    {
-                        "icon": "envelope",
-                        "href": "mailto:you@YourEmail.com",
-                        "text": "you@YourEmail.com",
-                        "target": "_self"
+                        "text": "Chase yo-ho-ho hogshead chase guns jury mast strike colors carouser belay Yellow Jack fluke. Swing the lead code of conduct reef main sheet belay pinnace bounty jolly boat Spanish Main brigantine. Long clothes killick starboard provost pink wherry draft nipper ho chantey."
                     }
                 ]
             },
@@ -157,6 +128,43 @@
                     {
                         "item": "Fist fighting",
                         "rating": 3
+                    }
+                ]
+            },
+
+            {
+                "title": "Contact Info",
+                "listType": "links",
+                "items": [
+                    {
+                        "icon": "globe",
+                        "href": "//www.pirateipsum.me",
+                        "text": "PirateIpsum.me",
+                        "target": "_blank"
+                    },
+                    {
+                        "icon": "github",
+                        "href": "//en.wikipedia.org/wiki/Blackbeard",
+                        "text": "github.com/YourLink",
+                        "target": "_blank"
+                    },
+                    {
+                        "icon": "linkedin",
+                        "href": "//www.linkedin.com/in/YourLink",
+                        "text": "linkedin.com/in/YourLink",
+                        "target": "_blank"
+                    },
+                    {
+                        "icon": "twitter",
+                        "href": "//www.twitter.com/YourLink",
+                        "text": "twitter.com/YourLink",
+                        "target": "_blank"
+                    },
+                    {
+                        "icon": "envelope",
+                        "href": "mailto:you@YourEmail.com",
+                        "text": "you@YourEmail.com",
+                        "target": "_self"
                     }
                 ]
             }

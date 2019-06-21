@@ -2,9 +2,9 @@
 
 > An Angular single-page résumé generator featuring [Angular 8](https://angular.io), [HttpClient](https://angular.io/guide/http),
 > [JSON Server](https://github.com/typicode/json-server),
-> [Testing](https://angular.io/guide/testing), [Karma](https://karma-runner.github.io/), [Jasmine](https://github.com/jasmine/jasmine), [Istanbul](https://github.com/gotwarlost/istanbul), [TypeScript 3.4.5](http://www.typescriptlang.org/), [@types](https://www.npmjs.com/~types), [TsLint](http://palantir.github.io/tslint/), [Codelyzer](https://github.com/mgechev/codelyzer), [Font Awesome](https://fontawesome.com/), and [Normalize.css](https://necolas.github.io/normalize.css/).
+> [Testing](https://angular.io/guide/testing), [Karma](https://karma-runner.github.io/), [Jasmine](https://github.com/jasmine/jasmine), [Istanbul](https://github.com/gotwarlost/istanbul), [TypeScript 3.4.5](http://www.typescriptlang.org/), [@types](https://www.npmjs.com/~types), [TsLint](http://palantir.github.io/tslint/), [Codelyzer](https://github.com/mgechev/codelyzer), [Compodoc](https://compodoc.app/), [Font Awesome](https://fontawesome.com/), and [Normalize.css](https://necolas.github.io/normalize.css/).
 
-This repo serves as a single-page template for anyone looking for a way to customize their résumé. Perfect for developers and creative types. Printable from a browser (currently only compatible in Chrome). Paper size is for the U.S. market (8.5" x 11").
+This repo serves as a single-page template for anyone looking for a way to customize their résumé. Perfect for developers and creative types. Printable from a browser (currently only compatible in Chrome and Firefox, and in 8.5" x 11" paper).
 
 ## Getting Started
 

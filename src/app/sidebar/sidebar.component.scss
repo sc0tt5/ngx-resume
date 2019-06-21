@@ -9,12 +9,23 @@
     font-size: 9pt;
     // each section (contact info, skills, etc.)
     &__section {
+        margin-bottom: 0.1in;
+
+        &__container {
+            height: var(--sidebar-section-container-height);
+        }
+
+        & > div > p {
+            margin: 0;
+            line-height: var(--side-bar-line-height);
+        }
+
         & h2 {
             text-transform: uppercase;
         }
 
         & ul {
-            line-height: 1.75;
+            line-height: var(--side-bar-line-height);
             margin-top: 0.05in;
             padding-left: 0;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -50,23 +61,24 @@
 // source code link/message
 // --------------------------------------
 .disclaimer {
-    height: 0.5in;
-    width: calc(var(--sidebar-width) - (var(--sidebar-horizontal-padding) * 2));
-    line-height: 1.5;
-    position: absolute;
-    top: calc(var(--page-height) - 0.5in);
-    left: var(--page-width) - var(--sidebar-width);
-    padding-bottom: var(--title-horizonatal-padding);
+    height: var(--sidebar-disclaimer-height);
+    position: relative;
     color: var(--text-light-color);
     font-size: 7.5pt;
     text-align: center;
 
-    & a {
-        color: var(--primary-color);
-        font-family: Consolas;
-        text-decoration: none;
-        &:hover {
-            color: #000;
+    & span {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        & a {
+            color: var(--primary-color);
+            font-family: Consolas;
+            text-decoration: none;
+            &:hover {
+                color: #000;
+            }
         }
     }
 }
