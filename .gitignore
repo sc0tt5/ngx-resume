@@ -48,3 +48,5 @@ Thumbs.db
 # to prevent publishing private resume data
 # db.json
 
+# settings
+settings.json

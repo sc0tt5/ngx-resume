@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Resume } from './core/model/resume.model';
 import { ResumeService } from './services/resume.service';
 
@@ -9,8 +9,9 @@ import { ResumeService } from './services/resume.service';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
     resume$: Observable<Resume>;
+    subscription: Subscription;
 
     constructor(private service: ResumeService, private titleService: Title) {}
 
@@ -18,7 +19,14 @@ export class AppComponent implements OnInit {
         // get resume data
         this.resume$ = this.getResume();
         // set the page title (not using router moduel)
-        this.resume$.subscribe(resume => this.titleService.setTitle(resume.header.name));
+        // this.resume$.subscribe(resume => this.titleService.setTitle(resume.header.name));
+        this.subscription = this.resume$.subscribe(resume =>
+            this.titleService.setTitle(resume.header.name)
+        );
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 
     getResume(): Observable<Resume> {
