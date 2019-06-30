@@ -17,6 +17,12 @@
         {
             "files": ".prettierrc",
             "options": { "parser": "json" }
+        },
+        {
+            "files": "*.md",
+            "options": {
+                "tabWidth": 1
+            }
         }
     ]
 }
