@@ -6,11 +6,12 @@
     "scripts": {
         "ng": "ng",
         "start": "concurrently \"json-server -w db.json\" \"ng serve --open\"",
+        "start:private": "concurrently \"json-server -w src/assets/db.json\" \"ng serve --open\"",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "doc": "npx compodoc -p tsconfig.app.json -d tmp/documentation"
+        "doc": "compodoc -p tsconfig.app.json -d tmp/documentation"
     },
     "private": true,
     "dependencies": {
