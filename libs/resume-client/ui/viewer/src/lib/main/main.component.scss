@@ -1,0 +1,110 @@
+$small-font: 8pt;
+
+// main container
+// --------------------------------------
+.main {
+  float: left;
+  height: var(--main-height);
+  padding: var(--main-padding) 0.25in 0 var(--main-padding);
+  width: var(--main-width);
+
+  &__intro > p {
+    margin: 0 auto;
+    padding-top: var(--blocks-padding-top);
+  }
+
+  // each section within main
+  &__block {
+    margin-bottom: 12pt;
+  }
+
+  & h2 {
+    position: relative;
+    text-transform: uppercase;
+  }
+}
+
+// main > blocks (each company, project, etc.)
+// --------------------------------------
+.blocks {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 2pt;
+
+  & > div {
+    padding-top: var(--blocks-padding-top);
+  }
+
+  &:last-child .decorator {
+    margin-bottom: 0.25in;
+  }
+
+  &__date {
+    flex: 0 0 var(--date-block-width);
+    font-size: $small-font;
+    font-weight: 600;
+    line-height: 1.4;
+
+    & span {
+      display: block;
+
+      &:nth-child(2)::before {
+        content: ' ';
+        display: block;
+        height: 2pt;
+        position: relative;
+        top: 1pt;
+      }
+    }
+  }
+}
+
+// main > blocks > list (bullets)
+// --------------------------------------
+.details {
+  flex: 1 0 0;
+
+  & div {
+    clear: both;
+  }
+
+  & header {
+    color: #000;
+  }
+
+  &__place {
+    font-size: $small-font;
+  }
+
+  &__location {
+    color: var(--text-light-color);
+    font-size: $small-font;
+
+    &::before {
+      content: '  | ';
+      font-style: normal;
+      font-weight: normal;
+      position: relative;
+      text-decoration: inherit;
+    }
+  }
+
+  &__list {
+    font-size: 9pt;
+
+    & ul {
+      margin: 0.08in 0;
+      padding-left: 0.07in;
+    }
+
+    & li {
+      margin: 0 0 0.025in 0.025in;
+    }
+
+    & li::before {
+      content: '• ';
+      margin-left: var(--custom-bullet-margin-left);
+      position: relative;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<main class="main">
+  <!-- main sections - projects, education, etc. -->
+  <section *ngFor="let section of sections" class="main__block">
+    <h2 [innerHTML]="section.title"></h2>
+
+    <!-- each career block -->
+    <section *ngFor="let block of section.list" class="blocks">
+      <!-- from-to -->
+      <div class="blocks__date">
+        <span [innerHTML]="block.from + ' -'"> -</span><span [innerHTML]="block.to"></span>
+      </div>
+
+      <div class="details">
+        <!-- title, company, and place -->
+        <div>
+          <h3 [innerHTML]="block.title"></h3>
+          <span class="details__place" [innerHTML]="block.place"></span>
+          <span class="details__location" [innerHTML]="block.location"></span>
+        </div>
+
+        <!-- bullet points -->
+        <div class="details__list">
+          <ul>
+            <li *ngFor="let bullet of block.bullets" [innerHTML]="bullet.item"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+</main>

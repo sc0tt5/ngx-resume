@@ -4,52 +4,15 @@
 /dist
 /tmp
 /out-tsc
-# Only exists if Bazel was run
-/bazel-out
+/coverage
 
 # dependencies
 /node_modules
 
-# profiling files
-chrome-profiler-events.json
-speed-measure-plugin.json
-
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
+# vscode
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
+# other
+/.angular/cache
 .DS_Store
-Thumbs.db
-
-# to prevent publishing private resume data
-# db.json
-
-# settings
-settings.json
-
-# place your private json here
-src/assets/db.json
+.lighthouseci

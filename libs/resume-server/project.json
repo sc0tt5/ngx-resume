@@ -1,0 +1,21 @@
+{
+  "sourceRoot": "libs/resume-server/src",
+  "projectType": "library",
+  "generators": {},
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/resume-server/jest.config.ts"
+      },
+      "outputs": ["{workspaceRoot}/tmp/coverage/libs/resume-server"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/resume-server/**/*.ts", "libs/resume-server/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:resume-server", "type:data-access"]
+}

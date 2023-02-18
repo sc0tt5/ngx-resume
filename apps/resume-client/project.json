@@ -1,0 +1,193 @@
+{
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/resume-client/src",
+  "prefix": "resume-client",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "optimization": true,
+        "outputHashing": "all",
+        "sourceMap": false,
+        "namedChunks": false,
+        "extractLicenses": true,
+        "vendorChunk": false,
+        "buildOptimizer": true,
+        "outputPath": "dist/resume-client/browser",
+        "index": "apps/resume-client/src/index.html",
+        "main": "apps/resume-client/src/main.ts",
+        "polyfills": "apps/resume-client/src/polyfills.ts",
+        "tsConfig": "apps/resume-client/tsconfig.app.json",
+        "aot": true,
+        "assets": [
+          "apps/resume-client/src/favicon.ico",
+          "apps/resume-client/src/robots.txt",
+          "apps/resume-client/src/assets",
+          {
+            "glob": "**/*",
+            "input": "../libs/resume-client/ui/viewer/src/assets",
+            "output": "./assets/"
+          },
+          {
+            "glob": "**/*",
+            "input": "./node_modules/@carbon/icons/svg",
+            "output": "./assets/icons/"
+          }
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/resume-client/ui/viewer/src/assets/stylesheets"]
+        },
+        "styles": ["node_modules/font-awesome/scss/font-awesome.scss", "apps/resume-client/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "local": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/resume-client/src/environments/environment.ts",
+              "with": "apps/resume-client/src/environments/environment.local.ts"
+            }
+          ]
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/resume-client/src/environments/environment.ts",
+              "with": "apps/resume-client/src/environments/environment.prod.ts"
+            }
+          ],
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "10kb"
+            }
+          ]
+        }
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "resume-client:build",
+        "proxyConfig": "apps/resume-client/proxy.conf.json"
+      },
+      "configurations": {
+        "local": {
+          "browserTarget": "resume-client:build:local"
+        },
+        "production": {
+          "browserTarget": "resume-client:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "resume-client:build"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "apps/resume-client/jest.config.ts"
+      },
+      "outputs": ["{workspaceRoot}/tmp/coverage/apps/resume-client"]
+    },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "sourceMap": false,
+        "optimization": {
+          "scripts": false,
+          "styles": true
+        },
+        "outputHashing": "media",
+        "outputPath": "dist/resume-client/server",
+        "main": "apps/resume-client/server.ts",
+        "tsConfig": "apps/resume-client/tsconfig.server.json",
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/resume-client/ui/viewer/src/assets/stylesheets"]
+        },
+        "externalDependencies": [
+          "@nestjs/microservices",
+          "@nestjs/microservices/microservices-module",
+          "@nestjs/websockets",
+          "@nestjs/websockets/socket-module",
+          "cache-manager",
+          "class-transformer",
+          "class-validator"
+        ]
+      },
+      "configurations": {
+        "local": {
+          "fileReplacements": [
+            {
+              "replace": "apps/resume-client/src/environments/environment.ts",
+              "with": "apps/resume-client/src/environments/environment.local.ts"
+            }
+          ]
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/resume-client/src/environments/environment.ts",
+              "with": "apps/resume-client/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve-ssr": {
+      "executor": "@nguniversal/builders:ssr-dev-server",
+      "options": {
+        "browserTarget": "resume-client:build",
+        "serverTarget": "resume-client:server"
+      },
+      "configurations": {
+        "local": {
+          "browserTarget": "resume-client:build:local",
+          "serverTarget": "resume-client:server:local"
+        },
+        "production": {
+          "browserTarget": "resume-client:build:production",
+          "serverTarget": "resume-client:server:production"
+        }
+      }
+    },
+    "prerender": {
+      "executor": "@nguniversal/builders:prerender",
+      "options": {
+        "browserTarget": "resume-client:build:production",
+        "serverTarget": "resume-client:server:production",
+        "routes": ["/resume"]
+      }
+    },
+    "analyze": {
+      "executor": "@ngx-builders/analyze:analyze",
+      "options": {
+        "outputPath": "dist/resume-client/browser"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/resume-client/**/*.ts", "apps/resume-client/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:resume-client"]
+}

@@ -1,0 +1,47 @@
+<aside class="sidebar">
+  <!-- container for everything minus sourcecode link -->
+  <div class="sidebar__section__container">
+    <!-- contact info, skills, etc. -->
+    <div *ngFor="let section of sections" class="sidebar__section">
+      <h2 [innerHTML]="section.title"></h2>
+
+      <!-- paragraph -->
+      <div *ngIf="section.listType === 'paragraph'">
+        <p *ngFor="let item of section.items" [innerHTML]="item.text"></p>
+      </div>
+
+      <!-- links -->
+      <ul *ngIf="section.listType === 'links'">
+        <li *ngFor="let item of section.items">
+          <a [href]="item.href" [target]="item.target" rel="noopener noreferrer"
+            ><i [attr.class]="'fa fa-' + item.icon" [ngClass]="{ 'icon--loaded': item.icon }"></i
+            ><span [innerHTML]="item.text"></span
+          ></a>
+        </li>
+      </ul>
+
+      <!-- plain list -->
+      <ul *ngIf="section.listType === 'list'">
+        <li *ngFor="let item of section.items" [innerHTML]="item.item"></li>
+      </ul>
+
+      <!-- list with ratings -->
+      <ul *ngIf="section.listType === 'rating'" class="rating flex flex-horizontal-center">
+        <li *ngFor="let item of section.items">
+          <div class="rating__container">
+            <div class="dots__label" [innerHTML]="item.item"></div>
+            <res-ui-vi-rating [rating]="item.rating" [max]="5"></res-ui-vi-rating>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- sourcecode link -->
+  <div class="disclaimer">
+    <span>
+      NGX R&eacute;sum&eacute; by Scott Robertson. Source code:
+      <a href="//git.io/fjaBd" target="_blank" rel="noopener noreferrer">git.io/fjaBd</a>
+    </span>
+  </div>
+</aside>
