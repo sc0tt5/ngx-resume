@@ -1,0 +1,99 @@
+@import 'https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap';
+
+// global variables
+:root {
+  // page
+  // --------------------------------------
+  --page-width: 8.5in;
+  --page-height: 11in;
+
+  // header
+  // --------------------------------------
+  --title-height: 1.15in;
+  --title-horizontal-padding: 0.15in;
+
+  // header
+  // --------------------------------------
+  --footer-height: 0.15in;
+
+  // main
+  // --------------------------------------
+  --main-width: 6.4in;
+  --main-height: calc(var(--page-height) - var(--title-height) - var(--footer-height));
+  --main-padding: 0.25in;
+
+  // list items and date
+  // --------------------------------------
+  --blocks-padding-top: 5pt;
+  --date-block-width: 0.8in;
+
+  // sidebar
+  // --------------------------------------
+  --sidebar-width: calc(var(--page-width) - var(--main-width));
+  --sidebar-horizontal-padding: 0.2in;
+  --sidebar-disclaimer-height: 0.5in;
+  --sidebar-section-container-height: calc(
+    var(--main-height) - (var(--main-padding) * 2) - var(--sidebar-disclaimer-height)
+  );
+  --side-bar-line-height: 1.5;
+
+  // colors
+  // --------------------------------------
+  --primary-color: #3c3d41; // #373d48;
+  --acent-color: #d0d0d0;
+  --text-color: #2b2b2b;
+  --text-light-color: #807e7e;
+  --text-inverse-color: #fff;
+  --section-header-color: #4babca;
+  --main-background-color: #fff;
+  --side-background-color: #f2f2f2;
+
+  // fonts
+  // --------------------------------------
+  --header-name-font: 'Kaushan Script', cursive; // Vivaldi; // 'Trebuchet MS';
+  --primary-font: 'Trebuchet MS'; // Helvetica, Arial, sans-serif; // 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; // Helvetica, Arial, sans-serif; // 'Open Sans', sans-serif;
+  --custom-bullet-margin-left: -7.5pt;
+}
+
+@page {
+  margin: 0;
+  size: letter portrait;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text-color);
+  font-family: var(--primary-font);
+  font-weight: 300;
+  height: var(--page-height);
+  hyphens: auto;
+  line-height: 1.2;
+  margin: 0;
+  width: var(--page-width);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1,
+h2 {
+  color: var(--section-header-color);
+  font-size: 10pt;
+  font-weight: 400;
+  margin-bottom: 5pt;
+}
+
+h3 {
+  font-size: 9pt;
+}
+
+li {
+  list-style-type: none;
+  margin: auto;
+}

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/resume-client/data-access/src",
+  "prefix": "res-da",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/resume-client/data-access/jest.config.ts"
+      },
+      "outputs": ["{workspaceRoot}/tmp/coverage/libs/resume-client/data-access"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/resume-client/data-access/**/*.ts", "libs/resume-client/data-access/**/*.html"]
+      }
+    }
+  },
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "tags": ["scope:resume-client-shared", "type:data-access"]
+}

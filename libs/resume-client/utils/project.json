@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/resume-client/utils/src",
+  "prefix": "res-ut",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/resume-client/utils/jest.config.ts"
+      },
+      "outputs": ["{workspaceRoot}/tmp/coverage/libs/resume-client/utils"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/resume-client/utils/**/*.ts", "libs/resume-client/utils/**/*.html"]
+      }
+    }
+  },
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "tags": ["scope:resume-client-shared", "type:util"]
+}

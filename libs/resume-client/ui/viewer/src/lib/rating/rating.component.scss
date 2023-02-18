@@ -1,0 +1,22 @@
+.dots {
+  height: 6px;
+  margin: 7px 0;
+
+  & > .dot {
+    background-color: var(--acent-color);
+    border-radius: 50%;
+    float: left;
+    height: 7px;
+    margin: auto 1px;
+    width: 7px;
+
+    &::after {
+      content: '.';
+      visibility: hidden;
+    }
+
+    &.active {
+      background-color: var(--primary-color);
+    }
+  }
+}

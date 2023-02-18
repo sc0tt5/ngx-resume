@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/resume-client/feature/viewer/src",
+  "prefix": "re-ft-vi",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/resume-client/feature/viewer/jest.config.ts"
+      },
+      "outputs": ["{workspaceRoot}/tmp/coverage/libs/resume-client/feature/viewer"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/resume-client/feature/viewer/**/*.ts", "libs/resume-client/feature/viewer/**/*.html"]
+      }
+    }
+  },
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "tags": ["scope:resume-client-viewer", "type:feature"]
+}

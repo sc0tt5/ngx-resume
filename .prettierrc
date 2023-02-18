@@ -1,28 +1,16 @@
 {
-    "printWidth": 90,
-    "tabWidth": 4,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "none",
-    "bracketSpacing": true,
-    "arrowParens": "avoid",
-    "overrides": [
-        {
-            "files": "*.test.js",
-            "options": {
-                "semi": true
-            }
-        },
-        {
-            "files": ".prettierrc",
-            "options": { "parser": "json" }
-        },
-        {
-            "files": "*.md",
-            "options": {
-                "tabWidth": 1
-            }
-        }
-    ]
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "printWidth": 120,
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": [".eslintrc", ".huskyrc", ".lintstagedrc", ".prettierrc", ".stylelintrc"],
+      "options": { "parser": "json" }
+    }
+  ]
 }

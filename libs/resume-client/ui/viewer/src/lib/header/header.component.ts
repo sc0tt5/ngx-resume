@@ -1,0 +1,13 @@
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+
+import { Header } from '@ngx-resume/shared/models';
+
+@Component({
+  selector: 'res-ui-vi-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class HeaderComponent {
+  @Input() header: Header;
+}
