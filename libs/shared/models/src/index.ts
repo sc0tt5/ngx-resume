@@ -1,5 +1,6 @@
 export * from './lib/header/header';
 export * from './lib/header/header.mock';
+export * from './lib/item/item';
 export * from './lib/list/list';
 export * from './lib/list/list.mock';
 export * from './lib/resource/resource';

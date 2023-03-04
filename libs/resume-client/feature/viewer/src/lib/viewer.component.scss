@@ -1,7 +1,9 @@
+@import 'ui-common';
+
+header,
 footer {
-  background: var(--primary-color);
   float: left;
-  height: 10pt;
+  height: $header-footer-height;
   position: relative;
-  width: var(--page-width);
+  width: $page-width;
 }

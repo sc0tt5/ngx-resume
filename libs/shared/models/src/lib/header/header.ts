@@ -1,4 +1,5 @@
 export interface Header {
-  name: string;
+  firstname: string;
+  lastname: string;
   title: string;
 }

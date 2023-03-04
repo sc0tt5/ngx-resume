@@ -40,9 +40,9 @@
           }
         ],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/resume-client/ui/viewer/src/assets/stylesheets"]
+          "includePaths": ["libs/resume-client/ui/shared/src/assets/stylesheets"]
         },
-        "styles": ["node_modules/font-awesome/scss/font-awesome.scss", "apps/resume-client/src/styles.scss"],
+        "styles": ["apps/resume-client/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -120,7 +120,7 @@
         "main": "apps/resume-client/server.ts",
         "tsConfig": "apps/resume-client/tsconfig.server.json",
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/resume-client/ui/viewer/src/assets/stylesheets"]
+          "includePaths": ["libs/resume-client/ui/shared/src/assets/stylesheets"]
         },
         "externalDependencies": [
           "@nestjs/microservices",

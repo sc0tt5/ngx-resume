@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { mockSidebar } from '@ngx-resume/shared/models';
+import { mockSidebar } from '@shared/models';
 
 import { RatingComponent } from '../rating/rating.component';
 
@@ -18,7 +18,8 @@ describe('SidebarComponent', () => {
 
     fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;
-    component.sections = [mockSidebar];
+    component.header = mockSidebar.header;
+    component.sections = mockSidebar.sections;
     fixture.detectChanges();
     nativeElement = fixture.nativeElement as HTMLElement;
   });
@@ -28,6 +29,6 @@ describe('SidebarComponent', () => {
   });
 
   it('should render section titles', () => {
-    expect(nativeElement.querySelector('h2').textContent).toContain(mockSidebar.title);
+    expect(nativeElement.querySelector('h2').textContent).toContain(mockSidebar.sections[0].title);
   });
 });

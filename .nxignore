@@ -1,3 +1,4 @@
 *.mock.ts
 *.spec.ts
 test-setup.ts
+apps/resume-client/server.ts

@@ -5,7 +5,7 @@ import { MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
 
-import { ResumeStoreModule } from '@ngx-resume/client/data-access';
+import { ResumeStoreModule } from '@client/data-access';
 
 import { environment } from '../environments/environment';
 

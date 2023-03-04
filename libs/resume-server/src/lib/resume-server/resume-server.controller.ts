@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 
 import { map, Observable } from 'rxjs';
 
-import { Resume } from '@ngx-resume/shared/models';
+import { Resume } from '@shared/models';
 
 import { ResumeServerService } from './resume-server.service';
 

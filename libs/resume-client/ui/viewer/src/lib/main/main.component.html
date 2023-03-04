@@ -1,30 +1,44 @@
-<main class="main">
-  <!-- main sections - projects, education, etc. -->
-  <section *ngFor="let section of sections" class="main__block">
-    <h2 [innerHTML]="section.title"></h2>
+<div class="row">
+  <div class="col">
+    <section class="container-fluid">
+      <!-- main sections - projects, education, etc. -->
+      <ng-container *ngFor="let section of sections; index as i" class="content-box">
+        <h2
+          class="fw-bold pb-2 text-dark text-uppercase"
+          [ngClass]="{ 'border-top pt-3': i !== 0 }"
+          [innerHTML]="section.title"
+        ></h2>
 
-    <!-- each career block -->
-    <section *ngFor="let block of section.list" class="blocks">
-      <!-- from-to -->
-      <div class="blocks__date">
-        <span [innerHTML]="block.from + ' -'"> -</span><span [innerHTML]="block.to"></span>
-      </div>
+        <ng-container [ngSwitch]="section.listType">
+          <!-- intro -->
+          <ng-container *ngSwitchCase="listTypeIntro">
+            <p class="text-medium" [innerHTML]="section.text"></p>
+          </ng-container>
 
-      <div class="details">
-        <!-- title, company, and place -->
-        <div>
-          <h3 [innerHTML]="block.title"></h3>
-          <span class="details__place" [innerHTML]="block.place"></span>
-          <span class="details__location" [innerHTML]="block.location"></span>
-        </div>
+          <!-- experience blocks -->
+          <ng-container *ngSwitchCase="listTypeExperience">
+            <div class="row pb-3" *ngFor="let block of section.list">
+              <div class="col text-small">
+                <!-- title, company, etc. -->
+                <span class="fw-bold" [innerHTML]="block.title"></span>
+                <span> - </span>
+                <span [innerHTML]="block.place"></span>
+                <span class="details__location" [innerHTML]="block.location"></span>
+                <span class="details__location" [innerHTML]="block.from"></span>
+                <span> - </span>
+                <span [innerHTML]="block.to"></span>
 
-        <!-- bullet points -->
-        <div class="details__list">
-          <ul>
-            <li *ngFor="let bullet of block.bullets" [innerHTML]="bullet.item"></li>
-          </ul>
-        </div>
-      </div>
+                <!-- bullet points -->
+                <div class="list">
+                  <ul>
+                    <li *ngFor="let bullet of block.bullets" class="text-medium" [innerHTML]="bullet.item"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
     </section>
-  </section>
-</main>
+  </div>
+</div>

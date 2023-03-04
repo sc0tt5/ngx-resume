@@ -9,10 +9,9 @@ import { resumeViewerSelectors } from './viewer.selectors';
 
 @Injectable({ providedIn: 'root' })
 export class ViewerFacade implements ViewerService {
-  header$ = this.store.select(resumeViewerSelectors.selectHeader);
-  intro$ = this.store.select(resumeViewerSelectors.selectIntro);
-  sections$ = this.store.select(resumeViewerSelectors.selectSections);
-  sidebar$ = this.store.select(resumeViewerSelectors.selectSidebar);
+  header$ = this.store.select(resumeViewerSelectors.selectSidebarHeader);
+  mainSections$ = this.store.select(resumeViewerSelectors.selectMainSections);
+  sidebarSections$ = this.store.select(resumeViewerSelectors.selectSidebarSections);
   loaded$ = this.store.select(resumeViewerSelectors.selectResumeLoaded);
 
   constructor(private store: Store) {}

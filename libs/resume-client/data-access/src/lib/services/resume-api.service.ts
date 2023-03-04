@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TransferState } from '@angular/platform-browser';
 
-import { Resume } from '@ngx-resume/shared/models';
+import { Resume } from '@shared/models';
 
 import { ResourceService } from './resource.service';
 

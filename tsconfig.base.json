@@ -21,12 +21,13 @@
     "target": "es2020",
     "typeRoots": ["node_modules/@types"],
     "paths": {
-      "@ngx-resume/server": ["libs/resume-server/src/index.ts"],
-      "@ngx-resume/shared/models": ["libs/shared/models/src/index.ts"],
-      "@ngx-resume/client/feature/viewer": ["libs/resume-client/feature/viewer/src/index.ts"],
-      "@ngx-resume/client/data-access": ["libs/resume-client/data-access/src/index.ts"],
-      "@ngx-resume/client/ui/viewer": ["libs/resume-client/ui/viewer/src/index.ts"],
-      "@ngx-resume/client/utils": ["libs/resume-client/utils/src/index.ts"]
+      "@client/ui/shared": ["libs/resume-client/ui/shared/src/index.ts"],
+      "@client/data-access": ["libs/resume-client/data-access/src/index.ts"],
+      "@client/feature/viewer": ["libs/resume-client/feature/viewer/src/index.ts"],
+      "@client/ui/viewer": ["libs/resume-client/ui/viewer/src/index.ts"],
+      "@client/utils": ["libs/resume-client/utils/src/index.ts"],
+      "@server": ["libs/resume-server/src/index.ts"],
+      "@shared/models": ["libs/shared/models/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

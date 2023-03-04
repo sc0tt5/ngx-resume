@@ -1,0 +1,68 @@
+/**
+* 1. In a larger codebase we would want to have a 7-1 pattern folder structure
+* 2. Purge CSS will eliminate most unused styles from vendors
+*/
+
+// helpers
+@import 'utilities/variables', 'utilities/functions';
+
+// vendor
+@import 'bootstrap';
+@import 'bootstrap-icons';
+
+@page {
+  margin: 0;
+  size: letter portrait;
+}
+
+@media print {
+  body {
+    height: $page-height;
+    margin: 0;
+    print-color-adjust: exact;
+    width: $page-width;
+  }
+}
+
+// overrides
+body {
+  color: $text-dark;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  height: $page-height;
+  hyphens: auto;
+  margin: 0;
+  width: $page-width;
+}
+
+h1,
+h2 {
+  font-size: $text-medium;
+  margin-bottom: 5pt;
+}
+
+h3 {
+  font-size: $text-small;
+}
+
+li {
+  list-style-type: none;
+  margin: auto;
+}
+
+.list {
+  & ul {
+    margin: 0.08in 0 !important;
+    padding-left: 5pt !important;
+  }
+
+  & li {
+    margin: 0 0 2pt 2pt;
+  }
+
+  & li::before {
+    content: '• ';
+    margin-left: -7.5pt;
+    position: relative;
+  }
+}

@@ -102,7 +102,12 @@
             "depConstraints": [
               {
                 "sourceTag": "scope:resume-client",
-                "onlyDependOnLibsWithTags": ["scope:resume-client-shared", "scope:resume-client-viewer"],
+                "onlyDependOnLibsWithTags": [
+                  "scope:resume-client",
+                  "scope:resume-client-shared",
+                  "scope:resume-client-viewer",
+                  "scope:shared"
+                ],
                 "bannedExternalImports": ["@nestjs/*"]
               },
               {

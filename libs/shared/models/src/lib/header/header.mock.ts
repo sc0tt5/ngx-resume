@@ -1,6 +1,7 @@
 import { Header } from './header';
 
 export const mockHeader: Header = {
-  name: 'test name',
+  firstname: 'test firstname',
+  lastname: 'test lastname',
   title: 'test title'
 };

@@ -1,6 +1,6 @@
 <ng-container *ngIf="loaded$ | async">
-  <res-ui-vi-header [header]="header$ | async"></res-ui-vi-header>
-  <res-ui-vi-main [sections]="sections$ | async"></res-ui-vi-main>
-  <res-ui-vi-sidebar [sections]="sidebar$ | async"></res-ui-vi-sidebar>
-  <footer></footer>
+  <header class="bg-dark"></header>
+  <aside res-ui-vi-sidebar [header]="header$ | async" [sections]="sidebarSections$ | async"></aside>
+  <main res-ui-vi-main [sections]="mainSections$ | async"></main>
+  <footer class="bg-dark mt=2"></footer>
 </ng-container>
