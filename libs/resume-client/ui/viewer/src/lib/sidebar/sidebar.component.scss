@@ -1,66 +1,75 @@
+@import 'ui-common';
+
+$sidebar-disclaimer-height: in-to-pt(0.5);
+$sidebar-section-container-height: calc(#{$page-height} - (#{$main-padding} * 2) - #{$sidebar-disclaimer-height});
+$side-bar-line-height: 1.5;
+
+:host {
+  display: flex;
+  float: left;
+  font-size: $text-small;
+  height: $page-height-without-header-footer;
+  justify-content: center;
+  padding: $main-padding 0; // $main-padding 25pt
+  position: relative;
+  width: calc(#{$page-width} - #{$main-width});
+}
+
+// name and title
+// --------------------------------------
+h1 {
+  display: grid;
+  font-size: 36px;
+}
+
 // source code link/message
 // --------------------------------------
 .disclaimer {
-  color: var(--text-light-color);
-  font-size: 7.5pt;
-  height: var(--sidebar-disclaimer-height);
-  position: relative;
+  bottom: 0;
+  display: grid;
+  font-size: $text-tiny;
+  left: 0;
+  padding-bottom: $main-padding;
+  position: absolute;
+  right: 0;
   text-align: center;
+  width: 100%;
 
-  & span {
-    bottom: 0;
-    position: absolute;
-    right: 0;
+  & a {
+    color: $primary;
+    text-decoration: none;
 
-    & a {
-      color: var(--primary-color);
-      font-family: Consolas, monaco, monospace;
-      text-decoration: none;
-
-      &:hover {
-        color: #000;
-      }
+    &:hover {
+      color: $dark;
     }
+  }
+
+  & .link {
+    font-family: Consolas, monaco, monospace;
   }
 }
 
 // sidebar container
 // --------------------------------------
 .sidebar {
-  background-color: var(--side-background-color);
-  float: right;
-  font-size: 9pt;
-  height: var(--main-height);
-  padding: var(--main-padding) var(--sidebar-horizontal-padding);
-  width: var(--sidebar-width);
-
   // each section (contact info, skills, etc.)
   &__section {
-    margin-bottom: 0.1in;
-
-    &__container {
-      height: var(--sidebar-section-container-height);
-    }
+    margin-top: 14pt;
 
     & > div > p {
-      line-height: var(--side-bar-line-height);
+      line-height: $side-bar-line-height;
       margin: 0;
     }
 
-    & h2 {
-      text-transform: uppercase;
-    }
-
     & ul {
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-weight: 400;
-      line-height: var(--side-bar-line-height);
-      margin-top: 0.05in;
+      // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      line-height: $side-bar-line-height;
+      margin-top: 4pt;
       padding-left: 0;
 
       /* stylelint-disable-next-line no-descending-specificity */
       & li > a {
-        color: var(--primary-color);
+        // color: $primary;
         font-style: normal;
         text-decoration: none;
 
@@ -70,7 +79,12 @@
 
         & > i {
           padding-right: 12pt;
+          vertical-align: middle;
           width: 9pt;
+        }
+
+        & > span {
+          vertical-align: middle;
         }
       }
     }

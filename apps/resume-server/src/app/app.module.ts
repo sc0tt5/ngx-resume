@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AngularUniversalModule } from '@nestjs/ng-universal';
 import { join } from 'path';
 
-import { ApiModule } from '@ngx-resume/server';
+import { ApiModule } from '@server';
 
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { AppServerModule } from '../../../resume-client/src/main.server';

@@ -1,26 +1,13 @@
-$small-font: 8pt;
+@import 'ui-common';
 
-// main container
-// --------------------------------------
-.main {
-  float: left;
-  height: var(--main-height);
-  padding: var(--main-padding) 0.25in 0 var(--main-padding);
-  width: var(--main-width);
+:host {
+  display: inline-block;
+  height: $page-height-without-header-footer;
+  padding: $main-padding 25pt;
+  width: $main-width;
 
-  &__intro > p {
-    margin: 0 auto;
-    padding-top: var(--blocks-padding-top);
-  }
-
-  // each section within main
-  &__block {
-    margin-bottom: 12pt;
-  }
-
-  & h2 {
+  h2 {
     position: relative;
-    text-transform: uppercase;
   }
 }
 
@@ -32,16 +19,15 @@ $small-font: 8pt;
   margin-top: 2pt;
 
   & > div {
-    padding-top: var(--blocks-padding-top);
+    padding-top: 5pt;
   }
 
   &:last-child .decorator {
-    margin-bottom: 0.25in;
+    margin-bottom: in-to-pt(0.25);
   }
 
   &__date {
-    flex: 0 0 var(--date-block-width);
-    font-size: $small-font;
+    flex: 0 0 in-to-pt(0.8);
     font-weight: 600;
     line-height: 1.4;
 
@@ -62,7 +48,7 @@ $small-font: 8pt;
 // main > blocks > list (bullets)
 // --------------------------------------
 .details {
-  flex: 1 0 0;
+  // flex: 1 0 0;
 
   & div {
     clear: both;
@@ -72,14 +58,7 @@ $small-font: 8pt;
     color: #000;
   }
 
-  &__place {
-    font-size: $small-font;
-  }
-
   &__location {
-    color: var(--text-light-color);
-    font-size: $small-font;
-
     &::before {
       content: '  | ';
       font-style: normal;
@@ -90,20 +69,18 @@ $small-font: 8pt;
   }
 
   &__list {
-    font-size: 9pt;
-
     & ul {
       margin: 0.08in 0;
-      padding-left: 0.07in;
+      padding-left: 5pt;
     }
 
     & li {
-      margin: 0 0 0.025in 0.025in;
+      margin: 0 0 2pt 2pt;
     }
 
     & li::before {
       content: '• ';
-      margin-left: var(--custom-bullet-margin-left);
+      margin-left: -7.5pt;
       position: relative;
     }
   }

@@ -4,6 +4,6 @@ export const APP_ROUTES: Routes = [
   { path: '', redirectTo: '/viewer', pathMatch: 'full' },
   {
     path: 'viewer',
-    loadChildren: () => import('@ngx-resume/client/feature/viewer').then(m => m.ViewerModule)
+    loadChildren: () => import('@client/feature/viewer').then(m => m.ViewerModule)
   }
 ];

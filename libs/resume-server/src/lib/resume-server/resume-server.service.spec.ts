@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { of } from 'rxjs';
 
-import { mockResume } from '@ngx-resume/shared/models';
+import { mockResume } from '@shared/models';
 
 import { ResumeServerService } from './resume-server.service';
 

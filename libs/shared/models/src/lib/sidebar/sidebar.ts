@@ -1,7 +1,7 @@
-import { Item } from '../item/item';
+import { Header } from '../header/header';
+import { Section } from '../section/section';
 
 export interface Sidebar {
-  title: string;
-  listType: string;
-  items: Item[];
+  header: Header;
+  sections: Section[];
 }

@@ -3,18 +3,18 @@
   "sourceRoot": "libs/resume-client/ui/viewer/src",
   "prefix": "res-ui-vi",
   "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/resume-client/ui/viewer/**/*.ts", "libs/resume-client/ui/viewer/**/*.html"]
+      }
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "libs/resume-client/ui/viewer/jest.config.ts"
       },
       "outputs": ["{workspaceRoot}/tmp/coverage/libs/resume-client/ui/viewer"]
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/resume-client/ui/viewer/**/*.ts", "libs/resume-client/ui/viewer/**/*.html"]
-      }
     }
   },
   "generators": {

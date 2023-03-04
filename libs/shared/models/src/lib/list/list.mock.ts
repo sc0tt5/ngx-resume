@@ -1,4 +1,4 @@
-import { mockItem } from '../item/item.mock';
+import { mockBullet } from '../item/item.mock';
 
 import { List } from './list';
 
@@ -8,5 +8,5 @@ export const mockList: List = {
   title: 'test title',
   place: 'test place',
   location: 'test location',
-  bullets: [mockItem]
+  bullets: [mockBullet]
 };

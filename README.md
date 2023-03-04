@@ -1,6 +1,6 @@
 # NGX Resume
 
-This project was generated using [Nx](https://nx.dev) with [Angular](https://github.com/angular/angular), [Nest](https://github.com/nestjs/nest), and [server-side rendering](https://github.com/angular/universal).
+This project was generated using [Nx](https://nx.dev) with [Angular](https://github.com/angular/angular), [Nest](https://github.com/nestjs/nest), and [server-side rendering](https://github.com/angular/universal). Built with [Bootstrap](https://getbootstrap.com/) 5 and [PurgeCSS](https://purgecss.com/).
 
 ## Installation
 
@@ -8,11 +8,21 @@ This project was generated using [Nx](https://nx.dev) with [Angular](https://git
 npm install
 ```
 
+**Note:** Before running the project, create `db.json` in the project root using `db.example.json` as a guide. This is to prevent your personal data from accidentally being pushed to a public server.
+
 ## Development
 
 ```text
 npm start
 ```
+
+## Production
+
+```bash
+npm run prod:ssr
+```
+
+Then open browser to [http://localhost:3333/viewer](http://localhost:3333/viewer)
 
 ## Unit Tests
 
@@ -37,3 +47,11 @@ npm run analyze:bundles
 ```text
 npm run dep-graph
 ```
+
+## Lighthouse CI
+
+```text
+npm run lighthouse
+```
+
+![Resume thumbnail](apps/resume-client/src/assets/resume-thumb-readme.png)

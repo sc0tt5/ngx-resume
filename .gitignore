@@ -16,3 +16,6 @@
 /.angular/cache
 .DS_Store
 .lighthouseci
+
+/apps/resume-client/db.json
+db.json

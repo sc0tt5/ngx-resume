@@ -5,7 +5,7 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { cold, hot } from 'jest-marbles';
 import { of, throwError } from 'rxjs';
 
-import { mockResume, Resume } from '@ngx-resume/shared/models';
+import { mockResume, Resume } from '@shared/models';
 
 import { resourceProviderMock } from '../../services/resource.service.mock';
 import { ResumeApiService } from '../../services/resume-api.service';

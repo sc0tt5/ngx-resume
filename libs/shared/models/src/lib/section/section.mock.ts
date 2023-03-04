@@ -1,8 +1,9 @@
 import { mockList } from '../list/list.mock';
 
-import { Section } from './section';
+import { ListType, Section } from './section';
 
 export const mockSection: Section = {
+  listType: ListType.EDUCATION,
   title: 'test title',
   icon: 'test icon',
   list: [mockList]

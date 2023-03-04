@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { of } from 'rxjs';
 
-import { ViewerService } from '@ngx-resume/client/data-access';
+import { ViewerService } from '@client/data-access';
 
 import { ViewerGuard } from './viewer.guard';
 

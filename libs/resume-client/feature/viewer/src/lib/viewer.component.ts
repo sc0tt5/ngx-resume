@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { ViewerService } from '@ngx-resume/client/data-access';
-import { Header, Section, Sidebar } from '@ngx-resume/shared/models';
+import { ViewerService } from '@client/data-access';
+import { Header, Section } from '@shared/models';
 
 @Component({
   templateUrl: './viewer.component.html',
@@ -12,18 +12,16 @@ import { Header, Section, Sidebar } from '@ngx-resume/shared/models';
 })
 export class ViewerComponent implements OnInit {
   header$: Observable<Header>;
-  intro$: Observable<string>;
-  sections$: Observable<Section[]>;
-  sidebar$: Observable<Sidebar[]>;
+  mainSections$: Observable<Section[]>;
+  sidebarSections$: Observable<Section[]>;
   loaded$: Observable<boolean>;
 
   constructor(private readonly viewer: ViewerService) {}
 
   ngOnInit() {
     this.header$ = this.viewer.header$;
-    this.intro$ = this.viewer.intro$;
-    this.sections$ = this.viewer.sections$;
-    this.sidebar$ = this.viewer.sidebar$;
+    this.mainSections$ = this.viewer.mainSections$;
+    this.sidebarSections$ = this.viewer.sidebarSections$;
     this.loaded$ = this.viewer.loaded$;
   }
 }

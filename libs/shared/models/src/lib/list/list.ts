@@ -1,4 +1,4 @@
-import { Item } from '../item/item';
+import { Bullet } from '../item/item';
 
 export interface List {
   from: string;
@@ -6,5 +6,5 @@ export interface List {
   title: string;
   place: string;
   location: string;
-  bullets: Item[];
+  bullets: Bullet[];
 }

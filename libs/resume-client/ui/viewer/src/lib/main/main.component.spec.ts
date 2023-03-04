@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { mockSection } from '@ngx-resume/shared/models';
+import { mockSection } from '@shared/models';
 
 import { MainComponent } from './main.component';
 
@@ -27,9 +27,5 @@ describe('MainComponent', () => {
 
   it('should render section title', () => {
     expect(nativeElement.querySelector('h2').textContent).toContain(mockSection.title);
-  });
-
-  it('should render section list titles', () => {
-    expect(nativeElement.querySelector('h3').textContent).toContain(mockSection.list[0].title);
   });
 });

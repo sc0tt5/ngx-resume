@@ -3,7 +3,7 @@ import { CanActivate } from '@angular/router';
 
 import { filter, Observable, take } from 'rxjs';
 
-import { ViewerService } from '@ngx-resume/client/data-access';
+import { ViewerService } from '@client/data-access';
 
 @Injectable({ providedIn: 'root' })
 export class ViewerGuard implements CanActivate {

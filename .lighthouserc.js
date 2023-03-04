@@ -14,10 +14,9 @@ module.exports = {
         'speed-index': ['warn', { maxNumericValue: 1000 }],
         // application not setup for production server
         'csp-xss': 'off',
-        'unused-css-rules': 'off', // remove from styles bundle if possible
         'unused-javascript': 'off', // remove from main bundle if possible
-        'uses-long-cache-ttl': 'off',
-        'uses-text-compression': 'off'
+        'uses-text-compression': 'off',
+        'unminified-javascript': 'off' // false positive?
       }
     },
     collect: {

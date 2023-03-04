@@ -1,6 +1,6 @@
 import { ActionCreator, ReducerTypes } from '@ngrx/store';
 
-import { Resume } from '@ngx-resume/shared/models';
+import { Resume } from '@shared/models';
 
 export const resumeFeatureKey = 'resume';
 

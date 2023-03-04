@@ -1,29 +1,43 @@
-import { mockResume } from '@ngx-resume/shared/models';
+import { mockResume } from '@shared/models';
+
+import { LOADED, LOADING, resumeInitialState } from '../resume.state';
 
 import { resumeViewerSelectors } from './viewer.selectors';
 
 describe('resumeViewerSelectors', () => {
-  describe('selectHeader', () => {
-    it('selectHeader should return the header of the resume', () => {
-      expect(resumeViewerSelectors.selectHeader.projector(mockResume)).toEqual(mockResume.header);
+  describe('selectResumeLoaded', () => {
+    it('should return the header of the resume', () => {
+      const state = { ...resumeInitialState, ...LOADED };
+      expect(resumeViewerSelectors.selectResumeLoaded.projector(state)).toEqual(true);
     });
   });
 
-  describe('selectIntro', () => {
-    it('selectIntro should return the intro of the resume', () => {
-      expect(resumeViewerSelectors.selectIntro.projector(mockResume)).toEqual(mockResume.intro);
+  describe('selectResumeLoading', () => {
+    it('should return the header of the resume', () => {
+      const state = { ...resumeInitialState, ...LOADING };
+      expect(resumeViewerSelectors.selectResumeLoading.projector(state)).toEqual(true);
     });
   });
 
-  describe('selectSections', () => {
-    it('selectSections should return the sections of the resume', () => {
-      expect(resumeViewerSelectors.selectSections.projector(mockResume)).toEqual(mockResume.sections);
+  describe('selectSidebarHeader', () => {
+    it('should return the header of the resume', () => {
+      expect(resumeViewerSelectors.selectSidebarHeader.projector(mockResume.sidebar)).toEqual(
+        mockResume.sidebar.header
+      );
     });
   });
 
-  describe('selectSidebar', () => {
-    it('selectSidebar should return the sidebar of the resume', () => {
-      expect(resumeViewerSelectors.selectSidebar.projector(mockResume)).toEqual(mockResume.sideBar);
+  describe('selectMainSections', () => {
+    it('should return the main section of the resume', () => {
+      expect(resumeViewerSelectors.selectMainSections.projector(mockResume.main)).toEqual(mockResume.main.sections);
+    });
+  });
+
+  describe('selectSidebarSections', () => {
+    it('should return the sidebar sections of the resume', () => {
+      expect(resumeViewerSelectors.selectSidebarSections.projector(mockResume.sidebar)).toEqual(
+        mockResume.sidebar.sections
+      );
     });
   });
 });

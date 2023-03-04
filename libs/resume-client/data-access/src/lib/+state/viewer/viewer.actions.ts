@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Resume } from '@ngx-resume/shared/models';
+import { Resume } from '@shared/models';
 
 // action constants
 const LOAD_RESUME = '[Resume] Load Resume';

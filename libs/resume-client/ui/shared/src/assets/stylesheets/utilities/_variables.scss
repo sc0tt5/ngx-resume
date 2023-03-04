@@ -1,0 +1,70 @@
+/* stylelint-disable scss/no-global-function-names */
+// ----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// ----------------------------------------------------------------------------
+
+@import 'functions';
+
+// header and footer
+// --------------------------------------
+$header-footer-height: 10pt;
+
+// page
+// --------------------------------------
+$page-height: in-to-pt(11);
+$page-width: in-to-pt(8.5);
+$page-height-without-header-footer: calc(#{$page-height} - calc(#{$header-footer-height}* 2));
+
+// main
+// --------------------------------------
+$main-padding: in-to-pt(0.25);
+$main-width: in-to-pt(5.7);
+
+// font size
+// --------------------------------------
+$text-tiny: 8pt;
+$text-small: 9pt;
+$text-medium: 10pt;
+$text-large: 11pt;
+$text-xl: 12pt;
+$text-size: (
+  'tiny': $text-tiny,
+  'small': $text-small,
+  'medium': $text-medium,
+  'large': $text-large,
+  'xl': $text-xl
+);
+
+@each $size, $value in $text-size {
+  .text-#{$size} {
+    font-size: $value;
+  }
+}
+
+// colors
+// --------------------------------------
+$primary: #3c3d41;
+$secondary: #d0d0d0;
+$light: #f2f2f2;
+$dark: #000;
+$text-dark: #10100f;
+$text-light: $secondary;
+$text-neutral: #474749;
+
+// theme override
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'light': $light,
+  'dark': $dark
+);
+
+// custom colors
+$custom-colors: (
+  'text-dark': $text-dark,
+  'text-light': $text-light,
+  'text-neutral': $text-neutral
+);
+
+// merge custom to theme
+$theme-colors: map-merge($theme-colors, $custom-colors);

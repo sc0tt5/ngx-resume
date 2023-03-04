@@ -1,0 +1,27 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/resume-client/ui/shared/src",
+  "prefix": "res-ui-shrd",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/resume-client/ui/shared/**/*.ts", "libs/resume-client/ui/shared/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/resume-client/ui/shared/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "outputs": ["{workspaceRoot}/tmp/coverage/libs/resume-client/ui/shared"]
+    }
+  },
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "tags": ["scope:resume-client-shared", "type:ui"]
+}

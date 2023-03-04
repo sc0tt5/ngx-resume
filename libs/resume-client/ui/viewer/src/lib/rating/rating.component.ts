@@ -1,6 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-
-import { BehaviorSubject } from 'rxjs';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'res-ui-vi-rating',
@@ -8,17 +6,10 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./rating.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RatingComponent implements OnInit {
-  @Input() rating: number;
+export class RatingComponent {
   @Input() max: number;
+  @Input() name: string;
+  @Input() rating: number;
 
-  dots$ = new BehaviorSubject([]);
-
-  ngOnInit() {
-    this.buildDots();
-  }
-
-  private buildDots() {
-    this.dots$.next(Array.from({ length: this.max }, (_, i) => (i + 1 <= this.rating ? 'active' : 'inactive')));
-  }
+  @HostBinding('class') private readonly hostClasses = 'pb-3';
 }
