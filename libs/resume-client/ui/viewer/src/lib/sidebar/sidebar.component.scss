@@ -10,7 +10,7 @@ $side-bar-line-height: 1.5;
   font-size: $text-small;
   height: $page-height-without-header-footer;
   justify-content: center;
-  padding: $main-padding 0; // $main-padding 25pt
+  padding: $main-padding 0;
   position: relative;
   width: calc(#{$page-width} - #{$main-width});
 }
@@ -51,41 +51,34 @@ h1 {
 
 // sidebar container
 // --------------------------------------
-.sidebar {
+.sidebar__section {
+  margin-top: 14pt;
+
   // each section (contact info, skills, etc.)
-  &__section {
-    margin-top: 14pt;
+  & ul {
+    line-height: $side-bar-line-height;
+    margin-top: 4pt;
+    padding-left: 0;
 
-    & > div > p {
-      line-height: $side-bar-line-height;
-      margin: 0;
-    }
+    /* stylelint-disable-next-line no-descending-specificity */
+    & li > a {
+      text-decoration: none;
 
-    & ul {
-      // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      line-height: $side-bar-line-height;
-      margin-top: 4pt;
-      padding-left: 0;
+      &:hover {
+        color: $dark;
+      }
 
-      /* stylelint-disable-next-line no-descending-specificity */
-      & li > a {
-        // color: $primary;
-        font-style: normal;
-        text-decoration: none;
+      & > i {
+        padding-right: 9pt;
+        vertical-align: middle;
 
-        &:hover {
-          color: #000;
+        &::before {
+          width: 12pt;
         }
+      }
 
-        & > i {
-          padding-right: 12pt;
-          vertical-align: middle;
-          width: 9pt;
-        }
-
-        & > span {
-          vertical-align: middle;
-        }
+      & > span {
+        vertical-align: middle;
       }
     }
   }
@@ -95,5 +88,4 @@ h1 {
 // --------------------------------------
 .rating__container {
   display: flex;
-  justify-content: space-between;
 }

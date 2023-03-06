@@ -1,3 +1,5 @@
+/* stylelint-disable scss/no-global-function-names */
+
 /**
 * 1. In a larger codebase we would want to have a 7-1 pattern folder structure
 * 2. Purge CSS will eliminate most unused styles from vendors
@@ -9,6 +11,34 @@
 // vendor
 @import 'bootstrap';
 @import 'bootstrap-icons';
+
+/**
+* Copy BS icons used to prevent Purge CSS from removing (saves 80kb to styles bundle).
+*/
+
+/*! purgecss start ignore */
+
+.bi-globe::before {
+  content: map-get($bootstrap-icons-map, 'globe');
+}
+
+.bi-github::before {
+  content: map-get($bootstrap-icons-map, 'github');
+}
+
+.bi-linkedin::before {
+  content: map-get($bootstrap-icons-map, 'linkedin');
+}
+
+.bi-twitter::before {
+  content: map-get($bootstrap-icons-map, 'twitter');
+}
+
+.bi-envelope::before {
+  content: map-get($bootstrap-icons-map, 'envelope');
+}
+
+/*! purgecss end ignore */
 
 @page {
   margin: 0;

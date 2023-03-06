@@ -24,7 +24,7 @@ describe('RatingComponent', () => {
   });
 
   it('should render the rating with the right active state', fakeAsync(() => {
-    const ratingPercent = fixture.debugElement.queryAll(By.css('.skills'));
+    const ratingPercent = fixture.debugElement.queryAll(By.css('.skill-level'));
     const styleWidth = ratingPercent[0].nativeNode.style.width;
     expect(styleWidth).toEqual(`${(component.rating / component.max) * 100}%`);
   }));
