@@ -20,13 +20,15 @@
             <div class="row pb-3" *ngFor="let block of section.list">
               <div class="col text-small">
                 <!-- title, company, etc. -->
-                <span class="fw-bold" [innerHTML]="block.title"></span>
-                <span> - </span>
-                <span [innerHTML]="block.place"></span>
-                <span class="details__location" [innerHTML]="block.location"></span>
-                <span class="details__location" [innerHTML]="block.from"></span>
-                <span> - </span>
-                <span [innerHTML]="block.to"></span>
+                <div class="title-company">
+                  <span class="fw-bold" [innerHTML]="block.title"></span>
+                  <span> - </span>
+                  <span [innerHTML]="block.place"></span>
+                  <span class="title-company__separator" [innerHTML]="block.location"></span>
+                  <span class="title-company__separator" [innerHTML]="block.from"></span>
+                  <span> - </span>
+                  <span [innerHTML]="block.to"></span>
+                </div>
 
                 <!-- bullet points -->
                 <div class="list">

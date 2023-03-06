@@ -2,14 +2,18 @@
 
 $bar-height: 5pt;
 
-.container {
-  background-color: $secondary;
-  height: $bar-height;
-  width: 100%;
-}
+.skill {
+  &-container {
+    background-color: $secondary;
+    height: $bar-height;
+    position: absolute;
+    width: 100%;
+  }
 
-.skills {
-  background-color: $text-neutral;
-  height: $bar-height;
-  left: 0;
+  &-level {
+    background-color: $text-neutral;
+    height: $bar-height;
+    left: 0;
+    position: absolute;
+  }
 }

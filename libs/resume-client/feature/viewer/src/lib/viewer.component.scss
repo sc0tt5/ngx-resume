@@ -2,8 +2,7 @@
 
 header,
 footer {
-  float: left;
+  background-color: $dark;
   height: $header-footer-height;
-  position: relative;
   width: $page-width;
 }

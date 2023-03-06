@@ -5,83 +5,13 @@
   height: $page-height-without-header-footer;
   padding: $main-padding 25pt;
   width: $main-width;
-
-  h2 {
-    position: relative;
-  }
-}
-
-// main > blocks (each company, project, etc.)
-// --------------------------------------
-.blocks {
-  display: flex;
-  flex-flow: row nowrap;
-  margin-top: 2pt;
-
-  & > div {
-    padding-top: 5pt;
-  }
-
-  &:last-child .decorator {
-    margin-bottom: in-to-pt(0.25);
-  }
-
-  &__date {
-    flex: 0 0 in-to-pt(0.8);
-    font-weight: 600;
-    line-height: 1.4;
-
-    & span {
-      display: block;
-
-      &:nth-child(2)::before {
-        content: ' ';
-        display: block;
-        height: 2pt;
-        position: relative;
-        top: 1pt;
-      }
-    }
-  }
 }
 
 // main > blocks > list (bullets)
 // --------------------------------------
-.details {
-  // flex: 1 0 0;
-
-  & div {
-    clear: both;
-  }
-
-  & header {
-    color: #000;
-  }
-
-  &__location {
-    &::before {
-      content: '  | ';
-      font-style: normal;
-      font-weight: normal;
-      position: relative;
-      text-decoration: inherit;
-    }
-  }
-
-  &__list {
-    & ul {
-      margin: 0.08in 0;
-      padding-left: 5pt;
-    }
-
-    & li {
-      margin: 0 0 2pt 2pt;
-    }
-
-    & li::before {
-      content: '• ';
-      margin-left: -7.5pt;
-      position: relative;
-    }
+.title-company__separator {
+  &::before {
+    color: $secondary;
+    content: '  | ';
   }
 }

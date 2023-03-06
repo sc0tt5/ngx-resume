@@ -24,6 +24,8 @@ npm run prod:ssr
 
 Then open browser to [http://localhost:3333/viewer](http://localhost:3333/viewer)
 
+![Resume thumbnail](apps/resume-client/src/assets/resume-thumb-readme.png)
+
 ## Unit Tests
 
 ```text
@@ -48,10 +50,12 @@ npm run analyze:bundles
 npm run dep-graph
 ```
 
+![Dependency Graph](apps/resume-client/src/assets/dep-graph-readme.png)
+
 ## Lighthouse CI
 
 ```text
 npm run lighthouse
 ```
 
-![Resume thumbnail](apps/resume-client/src/assets/resume-thumb-readme.png)
+![Lighthouse](apps/resume-client/src/assets/lighthouse-readme.png)
