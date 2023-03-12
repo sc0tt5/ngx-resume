@@ -13,7 +13,7 @@ describe('viewerReducer', () => {
       const action = resumeActions.loadResume();
       const state = resumeReducer(resumeInitialState, action);
 
-      expect(state).toEqual({ ...LOADING, ...{ resume: null } });
+      expect(state).toEqual({ ...LOADING, ...{ entity: null } });
     });
   });
 
@@ -22,7 +22,7 @@ describe('viewerReducer', () => {
       const action = resumeActions.loadResumeSuccess({ resume });
       const state = resumeReducer(resumeInitialState, action);
 
-      expect(state).toEqual({ ...LOADED, ...{ resume } });
+      expect(state).toEqual({ ...LOADED, ...{ entity: resume } });
     });
   });
 

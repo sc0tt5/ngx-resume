@@ -5,7 +5,7 @@ import { Resume } from '@shared/models';
 export const resumeFeatureKey = 'resume';
 
 export interface ResumeState {
-  resume: Resume;
+  entity: Resume;
   loaded: boolean;
   loading: boolean;
 }
@@ -13,7 +13,7 @@ export interface ResumeState {
 export type ResumeReducerTypes = ReducerTypes<ResumeState, ActionCreator[]>;
 
 export const resumeInitialState: ResumeState = {
-  resume: null,
+  entity: null,
   loaded: false,
   loading: false
 };
