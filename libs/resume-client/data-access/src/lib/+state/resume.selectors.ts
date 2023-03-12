@@ -6,7 +6,7 @@ import { resumeFeatureKey, ResumeState } from './resume.state';
 const selectResumeFeature = createFeatureSelector<ResumeState>(resumeFeatureKey);
 
 // projectors
-const resume = (state: ResumeState) => state.resume;
+const resume = (state: ResumeState) => state.entity;
 const loaded = (state: ResumeState) => state.loaded;
 const loading = (state: ResumeState) => state.loading;
 

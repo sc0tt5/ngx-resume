@@ -7,8 +7,8 @@ import { resumeActions } from './viewer.actions';
 export const viewerReducerOns: ResumeReducerTypes[] = [
   on(resumeActions.loadResume, state => ({ ...state, ...LOADING })),
   on(resumeActions.loadResumeSuccess, (state, payload) => {
-    const resume = payload.resume;
-    return { ...state, ...LOADED, ...{ resume } };
+    const entity = payload.resume;
+    return { ...state, ...LOADED, ...{ entity } };
   }),
   on(resumeActions.loadResumeFail, state => ({ ...state, ...RESET }))
 ];
