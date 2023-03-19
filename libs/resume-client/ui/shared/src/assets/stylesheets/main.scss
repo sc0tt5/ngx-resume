@@ -40,6 +40,23 @@
 
 /*! purgecss end ignore */
 
+// overrides
+body {
+  background-color: #5f6368;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 70%);
+  color: $text-dark;
+  font-family: sans-serif;
+  font-weight: 300;
+  height: $page-height;
+  hyphens: auto;
+  margin: calc((100vh - #{$page-height}) / 2.5) auto 0;
+  width: $page-width;
+
+  @include media-breakpoint-down(lg) {
+    margin: auto;
+  }
+}
+
 @page {
   margin: 0;
   size: letter portrait;
@@ -47,22 +64,12 @@
 
 @media print {
   body {
+    box-shadow: none;
     height: $page-height;
     margin: 0;
     print-color-adjust: exact;
     width: $page-width;
   }
-}
-
-// overrides
-body {
-  color: $text-dark;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  height: $page-height;
-  hyphens: auto;
-  margin: 0;
-  width: $page-width;
 }
 
 h1,
@@ -82,7 +89,7 @@ li {
 
 .list {
   & ul {
-    margin: 0.08in 0 !important;
+    margin: in-to-pt(0.08) 0 !important;
     padding-left: 5pt !important;
   }
 
