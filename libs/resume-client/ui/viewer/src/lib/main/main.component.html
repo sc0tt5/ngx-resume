@@ -31,7 +31,7 @@
                 </div>
 
                 <!-- bullet points -->
-                <div class="list">
+                <div *ngIf="block.bullets" class="list">
                   <ul>
                     <li *ngFor="let bullet of block.bullets" class="text-medium" [innerHTML]="bullet.item"></li>
                   </ul>

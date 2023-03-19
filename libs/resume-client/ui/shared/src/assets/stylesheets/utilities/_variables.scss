@@ -27,12 +27,14 @@ $text-small: 9pt;
 $text-medium: 10pt;
 $text-large: 11pt;
 $text-xl: 12pt;
+$text-huge: 27pt;
 $text-size: (
   'tiny': $text-tiny,
   'small': $text-small,
   'medium': $text-medium,
   'large': $text-large,
-  'xl': $text-xl
+  'xl': $text-xl,
+  'huge': $text-huge
 );
 
 @each $size, $value in $text-size {

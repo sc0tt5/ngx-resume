@@ -11,7 +11,14 @@
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "options": {
-        "optimization": true,
+        "optimization": {
+          "scripts": true,
+          "styles": {
+            "minify": true,
+            "inlineCritical": false
+          },
+          "fonts": true
+        },
         "outputHashing": "all",
         "sourceMap": false,
         "namedChunks": false,
@@ -27,17 +34,7 @@
         "assets": [
           "apps/resume-client/src/favicon.ico",
           "apps/resume-client/src/robots.txt",
-          "apps/resume-client/src/assets",
-          {
-            "glob": "**/*",
-            "input": "../libs/resume-client/ui/viewer/src/assets",
-            "output": "./assets/"
-          },
-          {
-            "glob": "**/*",
-            "input": "./node_modules/@carbon/icons/svg",
-            "output": "./assets/icons/"
-          }
+          "apps/resume-client/src/assets"
         ],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/resume-client/ui/shared/src/assets/stylesheets"]

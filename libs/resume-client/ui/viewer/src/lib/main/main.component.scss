@@ -1,8 +1,10 @@
 @import 'ui-common';
 
 :host {
+  background-color: #fff;
   display: inline-block;
   height: $page-height-without-header-footer;
+  margin: auto;
   padding: $main-padding 25pt;
   width: $main-width;
 }
