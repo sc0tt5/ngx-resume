@@ -20,6 +20,7 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
   build:
+    name: Build and Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -32,7 +33,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm ci
         run: npm ci
-      - name: Build Angular SSR
+      - name: Build
         run: npm run build:ssr --if-present
-      - name: Run unit tests
+      - name: Test
         run: npm test
