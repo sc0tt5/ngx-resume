@@ -15,7 +15,7 @@ export class HttpErrorFilter implements ExceptionFilter {
       timestamp: new Date().toUTCString(),
       path: request.url,
       method: request.method,
-      message: exception.message || null
+      message: exception.message
     };
 
     Logger.error(`${request.method} ${request.url}`, JSON.stringify(errorResponse), 'ExceptionFilter');
