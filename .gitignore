@@ -11,6 +11,7 @@
 
 # vscode
 .vscode/*
+!.vscode/extensions.json
 
 # other
 /.angular/cache

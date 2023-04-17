@@ -1,7 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Inject, PLATFORM_ID } from '@angular/core';
-import { makeStateKey, StateKey, TransferState } from '@angular/platform-browser';
+import { StateKey, TransferState, makeStateKey } from '@angular/platform-browser';
 import { Params } from '@angular/router';
 
 import { Observable, of, throwError } from 'rxjs';
@@ -20,7 +20,7 @@ export class ResourceService<T> {
     private itemKeyName?: string
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
-    this.itemKey = makeStateKey<T>(itemKeyName || '');
+    this.itemKey = makeStateKey<T>(itemKeyName);
   }
 
   read(params?: Params, path?: string): Observable<T | undefined> {
