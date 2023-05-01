@@ -4,7 +4,7 @@ import { Injectable, UseFilters } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Resume } from '@shared/models';
+import { CoverLetter, Resume } from '@shared/models';
 
 import { HttpErrorFilter } from '../http-error/http-error.filter';
 
@@ -15,7 +15,10 @@ export class ResumeServerService {
 
   constructor(private http: HttpService) {}
 
-  find(): Observable<Resume> {
+  findCoverLetter(): Observable<CoverLetter> {
+    return this.http.get<CoverLetter>(`${this.BASE_URL}/cover-letter`).pipe(map(response => response.data));
+  }
+  findResume(): Observable<Resume> {
     return this.http.get<Resume>(`${this.BASE_URL}/resume`).pipe(map(response => response.data));
   }
 }

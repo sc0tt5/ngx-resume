@@ -87,6 +87,7 @@
     "@angular/cli": "~14.2.0",
     "@angular/compiler-cli": "14.2.12",
     "@angular/language-service": "14.2.12",
+    "@automock/jest": "1.0.1",
     "@compodoc/compodoc": "1.1.19",
     "@lhci/cli": "0.10.0",
     "@nestjs/schematics": "9.0.3",

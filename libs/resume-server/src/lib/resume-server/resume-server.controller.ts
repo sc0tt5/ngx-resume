@@ -2,16 +2,21 @@ import { Controller, Get } from '@nestjs/common';
 
 import { map, Observable } from 'rxjs';
 
-import { Resume } from '@shared/models';
+import { CoverLetter, Resume } from '@shared/models';
 
 import { ResumeServerService } from './resume-server.service';
 
-@Controller('resume')
+@Controller()
 export class ResumeServerController {
   constructor(private readonly resume: ResumeServerService) {}
 
-  @Get()
-  find(): Observable<Resume> {
-    return this.resume.find().pipe(map(resume => resume));
+  @Get('cover-letter')
+  findCoverLetter(): Observable<CoverLetter> {
+    return this.resume.findCoverLetter().pipe(map(resume => resume));
+  }
+
+  @Get('resume')
+  findResume(): Observable<Resume> {
+    return this.resume.findResume().pipe(map(resume => resume));
   }
 }

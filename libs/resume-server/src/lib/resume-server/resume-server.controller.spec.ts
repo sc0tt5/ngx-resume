@@ -1,45 +1,48 @@
-import { Test, TestingModule } from '@nestjs/testing';
-
+import { TestBed } from '@automock/jest';
 import { of } from 'rxjs';
 
-import { mockResume } from '@shared/models';
+import { mockCoverLetter, mockResume } from '@shared/models';
 
 import { ResumeServerController } from './resume-server.controller';
 import { ResumeServerService } from './resume-server.service';
 
 describe('ResumeServerController', () => {
   let controller: ResumeServerController;
-  let service: ResumeServerService;
+  let service: jest.Mocked<ResumeServerService>;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [ResumeServerController],
-      providers: [
-        ResumeServerService,
-        {
-          provide: ResumeServerService,
-          useValue: {
-            find: jest.fn().mockReturnValue(of(mockResume))
-          }
-        }
-      ]
-    }).compile();
-
-    controller = module.get<ResumeServerController>(ResumeServerController);
-    service = module.get<ResumeServerService>(ResumeServerService);
+  beforeAll(() => {
+    const { unit, unitRef } = TestBed.create(ResumeServerController)
+      .mock(ResumeServerService)
+      .using({
+        findCoverLetter: jest.fn().mockReturnValueOnce(of(mockCoverLetter)),
+        findResume: jest.fn().mockReturnValueOnce(of(mockResume))
+      })
+      .compile();
+    controller = unit;
+    service = unitRef.get(ResumeServerService);
   });
 
-  it('should create', () => {
-    expect(controller).toBeDefined();
+  describe('findCoverLetter', () => {
+    it('should return the cover letter data', done => {
+      jest.spyOn(service, 'findCoverLetter');
+
+      controller.findCoverLetter().subscribe(data => {
+        expect(service.findCoverLetter).toHaveBeenCalledTimes(1);
+        expect(data).toEqual(mockCoverLetter);
+        done();
+      });
+    });
   });
 
-  it('should return the resume data', done => {
-    jest.spyOn(service, 'find');
+  describe('findResume', () => {
+    it('should return the resume data', done => {
+      jest.spyOn(service, 'findResume');
 
-    controller.find().subscribe(data => {
-      expect(service.find).toHaveBeenCalledTimes(1);
-      expect(data).toEqual(mockResume);
-      done();
+      controller.findResume().subscribe(data => {
+        expect(service.findResume).toHaveBeenCalledTimes(1);
+        expect(data).toEqual(mockResume);
+        done();
+      });
     });
   });
 });

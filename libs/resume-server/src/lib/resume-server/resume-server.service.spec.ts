@@ -1,46 +1,54 @@
 import { HttpService } from '@nestjs/axios';
-import { Test, TestingModule } from '@nestjs/testing';
 
+import { TestBed } from '@automock/jest';
+import { AxiosResponse } from 'axios';
 import { of } from 'rxjs';
 
-import { mockResume } from '@shared/models';
+import { mockCoverLetter, mockResume } from '@shared/models';
 
 import { ResumeServerService } from './resume-server.service';
 
+const COVER_LETTER_ENDPOINT = 'http://localhost:8800/cover-letter';
 const RESUME_ENDPOINT = 'http://localhost:8800/resume';
+
+const mockAxiosResponse = (mockData: unknown): AxiosResponse =>
+  ({
+    data: mockData
+  } as unknown as AxiosResponse);
 
 describe('ResumeServerService', () => {
   let service: ResumeServerService;
-  let httpService: HttpService;
+  let httpService: jest.Mocked<HttpService>;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        ResumeServerService,
-        {
-          provide: HttpService,
-          useValue: {
-            get: jest.fn().mockReturnValue(of({ data: mockResume }))
-          }
-        }
-      ]
-    }).compile();
-
-    service = module.get<ResumeServerService>(ResumeServerService);
-    httpService = module.get<HttpService>(HttpService);
+  beforeAll(() => {
+    const { unit, unitRef } = TestBed.create(ResumeServerService).mock(HttpService).using({ get: jest.fn() }).compile();
+    service = unit;
+    httpService = unitRef.get(HttpService);
   });
 
-  it('should create', () => {
-    expect(service).toBeDefined();
+  describe('findCoverLetter', () => {
+    it('should return the cover letter data', done => {
+      jest.spyOn(httpService, 'get');
+      httpService.get.mockReturnValueOnce(of(mockAxiosResponse(mockCoverLetter)));
+
+      service.findCoverLetter().subscribe(data => {
+        expect(httpService.get).toHaveBeenCalledWith(COVER_LETTER_ENDPOINT);
+        expect(data).toEqual(mockCoverLetter);
+        done();
+      });
+    });
   });
 
-  it('should return the resume data', done => {
-    jest.spyOn(httpService, 'get');
+  describe('findResume', () => {
+    it('should return the resume data', done => {
+      jest.spyOn(httpService, 'get');
+      httpService.get.mockReturnValueOnce(of(mockAxiosResponse(mockResume)));
 
-    service.find().subscribe(data => {
-      expect(httpService.get).toHaveBeenCalledWith(RESUME_ENDPOINT);
-      expect(data).toEqual(mockResume);
-      done();
+      service.findResume().subscribe(data => {
+        expect(httpService.get).toHaveBeenCalledWith(RESUME_ENDPOINT);
+        expect(data).toEqual(mockResume);
+        done();
+      });
     });
   });
 });

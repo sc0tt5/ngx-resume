@@ -1,3 +1,5 @@
+export * from './lib/cover-letter/cover-letter';
+export * from './lib/cover-letter/cover-letter.mock';
 export * from './lib/header/header';
 export * from './lib/header/header.mock';
 export * from './lib/item/item';
