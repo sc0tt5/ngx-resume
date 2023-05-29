@@ -3,6 +3,7 @@ export * from './lib/header/header.mock';
 export * from './lib/item/item';
 export * from './lib/list/list';
 export * from './lib/list/list.mock';
+export * from './lib/main/main.mock';
 export * from './lib/resource/resource';
 export * from './lib/resume/resume';
 export * from './lib/resume/resume.mock';

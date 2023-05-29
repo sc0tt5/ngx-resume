@@ -1,4 +1,6 @@
 {
+  "name": "resume-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/resume-server/src",
   "projectType": "application",
   "prefix": "resume-server",
@@ -29,13 +31,13 @@
       "outputs": ["{options.outputPath}"]
     },
     "serve": {
-      "executor": "@nrwl/node:node",
+      "executor": "@nx/node:node",
       "options": {
         "buildTarget": "resume-server:build"
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "options": {
         "jestConfig": "apps/resume-server/jest.config.ts",
         "passWithNoTests": true

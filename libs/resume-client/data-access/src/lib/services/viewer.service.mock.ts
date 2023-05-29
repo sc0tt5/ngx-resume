@@ -2,8 +2,7 @@ import { Provider } from '@angular/core';
 
 import { of } from 'rxjs';
 
-import { mockHeader, mockSidebar } from '@shared/models';
-import { mockMain } from 'libs/shared/models/src/lib/main/main.mock';
+import { mockHeader, mockSidebar, mockMain } from '@shared/models';
 
 import { ViewerService } from './viewer.service';
 

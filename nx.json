@@ -1,5 +1,4 @@
 {
-  "npmScope": "nx-demo",
   "affected": {
     "defaultBase": "master"
   },
@@ -14,12 +13,12 @@
   },
   "defaultProject": "resume-client",
   "generators": {
-    "@nrwl/angular:application": {
+    "@nx/angular:application": {
       "unitTestRunner": "jest",
       "e2eTestRunner": "none",
       "strict": true
     },
-    "@nrwl/angular:library": {
+    "@nx/angular:library": {
       "unitTestRunner": "jest",
       "strict": true
     },

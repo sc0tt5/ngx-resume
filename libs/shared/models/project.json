@@ -1,4 +1,6 @@
 {
+  "name": "shared-models",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/shared/models/src",
   "prefix": "shrd-mdl",
@@ -11,7 +13,7 @@
     }
   },
   "generators": {
-    "@nrwl/angular:component": {
+    "@nx/angular:component": {
       "styleext": "scss"
     }
   },

@@ -1,4 +1,4 @@
-const nxPreset = require('@nrwl/jest/preset').default;
+const nxPreset = require('@nx/jest/preset').default;
 
 module.exports = {
   ...nxPreset,
@@ -18,7 +18,8 @@ module.exports = {
       }
     ]
   ],
-  resolver: '@nrwl/jest/plugins/resolver',
+  resolver: '@nx/jest/plugins/resolver',
+  snapshotFormat: { escapeString: true, printBasicPrototype: true },
   testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
   transform: {
     '^.+\\.(ts|html)$': 'jest-preset-angular'

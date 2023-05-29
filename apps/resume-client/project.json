@@ -1,4 +1,6 @@
 {
+  "name": "resume-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "generators": {
     "@schematics/angular:component": {
@@ -19,7 +21,7 @@
           },
           "fonts": true
         },
-        "outputHashing": "all",
+        "outputHashing": "bundles",
         "sourceMap": false,
         "namedChunks": false,
         "extractLicenses": true,
@@ -34,8 +36,14 @@
         "assets": [
           "apps/resume-client/src/favicon.ico",
           "apps/resume-client/src/robots.txt",
-          "apps/resume-client/src/assets"
+          "apps/resume-client/src/assets",
+          {
+            "glob": "fonts/**/*",
+            "input": "./node_modules/bootstrap-icons/font/fonts",
+            "output": "/assets/"
+          }
         ],
+        "resourcesOutputPath": "assets/fonts",
         "stylePreprocessorOptions": {
           "includePaths": ["libs/resume-client/ui/shared/src/assets/stylesheets"]
         },
@@ -98,7 +106,7 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "options": {
         "jestConfig": "apps/resume-client/jest.config.ts"
       },

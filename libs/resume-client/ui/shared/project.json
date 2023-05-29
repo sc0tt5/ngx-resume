@@ -1,4 +1,6 @@
 {
+  "name": "resume-client-ui-shared",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/resume-client/ui/shared/src",
   "prefix": "res-ui-shrd",
@@ -10,7 +12,7 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "options": {
         "jestConfig": "libs/resume-client/ui/shared/jest.config.ts",
         "passWithNoTests": true
