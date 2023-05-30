@@ -135,7 +135,7 @@
     "lint-staged": "13.2.2",
     "ngrx-store-freeze": "0.2.4",
     "nx": "16.2.2",
-    "prettier": "2.8.1",
+    "prettier": "2.8.8",
     "purgecss": "5.0.0",
     "stylelint": "15.6.2",
     "stylelint-config-prettier-scss": "1.0.0",
