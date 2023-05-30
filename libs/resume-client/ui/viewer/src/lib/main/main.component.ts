@@ -9,7 +9,8 @@ import { ListType, Section } from '@shared/models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent {
-  @Input() sections: Section[];
+  @Input({ required: true }) sections: Section[];
+
   readonly listTypeExperience = ListType.EXPERIENCE;
   readonly listTypeIntro = ListType.INTRO;
 }

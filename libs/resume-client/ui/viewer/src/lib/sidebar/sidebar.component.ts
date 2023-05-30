@@ -9,7 +9,8 @@ import { Header, Section } from '@shared/models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarComponent {
-  @Input() header: Header;
-  @Input() sections: Section[];
+  @Input({ required: true }) header: Header;
+  @Input({ required: true }) sections: Section[];
+
   @HostBinding('class') private readonly hostClasses = 'bg-light border-end';
 }
