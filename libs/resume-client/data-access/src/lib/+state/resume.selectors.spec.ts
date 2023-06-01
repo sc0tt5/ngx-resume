@@ -1,7 +1,7 @@
 import { mockResume } from '@shared/models';
 
 import { resumeProjectors, resumeSelectors } from './resume.selectors';
-import { LOADED, LOADING, resumeInitialState, ResumeState } from './resume.state';
+import { LOADED, LOADING, ResumeState, resumeInitialState } from './resume.state';
 
 // const resume = mockResume;
 const mockLoadedState: ResumeState = { ...resumeInitialState, ...{ entity: mockResume }, ...LOADED };
@@ -9,7 +9,7 @@ const mockLoadingState: ResumeState = { ...resumeInitialState, ...LOADING };
 
 describe('resumeSelectors selectResumeState', () => {
   it('should return the resume state', () => {
-    expect(resumeSelectors.selectResumeState.projector(mockResume)).toEqual(mockResume);
+    expect(resumeSelectors.selectResumeState.projector(mockLoadedState)).toEqual(mockLoadedState);
   });
 });
 

@@ -9,7 +9,7 @@ describe('RatingComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RatingComponent]
+      imports: [RatingComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(RatingComponent);

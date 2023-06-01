@@ -48,7 +48,7 @@
         <ul *ngIf="section.listType === 'rating'" class="rating flex flex-horizontal-center">
           <li *ngFor="let item of section.items">
             <div class="position-relative rating__container">
-              <res-ui-vi-rating [rating]="item.rating" [max]="10" [name]="item.text"></res-ui-vi-rating>
+              <res-ui-vi-rating [rating]="item.rating" [max]="10" [name]="item.text" />
             </div>
           </li>
         </ul>

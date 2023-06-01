@@ -4,8 +4,9 @@ import { join } from 'path';
 
 import { ApiModule } from '@server';
 
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { AppServerModule } from '../../../resume-client/src/main.server';
+
 @Module({
   imports: [
     AngularUniversalModule.forRoot({

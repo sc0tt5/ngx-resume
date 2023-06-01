@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
 
 import { filter, Observable, take } from 'rxjs';
 
 import { ViewerService } from '@client/data-access';
 
 @Injectable({ providedIn: 'root' })
-export class ViewerGuard implements CanActivate {
+export class ViewerGuard {
   constructor(private readonly viewer: ViewerService) {}
 
   canActivate(): Observable<boolean> {

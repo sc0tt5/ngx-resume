@@ -1,4 +1,4 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 import { enableProdMode } from '@angular/core';
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
