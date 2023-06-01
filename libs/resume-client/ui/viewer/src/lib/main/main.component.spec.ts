@@ -11,7 +11,7 @@ describe('MainComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MainComponent]
+      imports: [MainComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MainComponent);

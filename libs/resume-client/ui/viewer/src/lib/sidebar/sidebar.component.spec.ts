@@ -13,7 +13,7 @@ describe('SidebarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidebarComponent, RatingComponent]
+      imports: [SidebarComponent, RatingComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SidebarComponent);

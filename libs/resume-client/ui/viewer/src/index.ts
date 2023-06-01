@@ -1,2 +1,2 @@
-export * from './lib/main/main.module';
-export * from './lib/sidebar/sidebar.module';
+export * from './lib/main/main.component';
+export * from './lib/sidebar/sidebar.component';
