@@ -9,6 +9,7 @@ export class HttpErrorFilter implements ExceptionFilter {
     const request = ctx.getRequest<Request>();
     const response = ctx.getResponse<Response>();
     const status = exception.getStatus();
+    const stack = exception.stack;
 
     const errorResponse = {
       code: status,
@@ -18,8 +19,7 @@ export class HttpErrorFilter implements ExceptionFilter {
       message: exception.message
     };
 
-    Logger.error(`${request.method} ${request.url}`, JSON.stringify(errorResponse), 'ExceptionFilter');
-
+    Logger.error(errorResponse, stack, 'ExceptionFilter');
     response.status(status).json(errorResponse);
   }
 }
