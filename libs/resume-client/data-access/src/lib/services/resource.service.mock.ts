@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable, PLATFORM_ID, Provider } from '@angular/core';
-import { TransferState } from '@angular/platform-browser';
+import { Injectable, Provider } from '@angular/core';
 
 import { NGXLogger } from 'ngx-logger';
 
@@ -16,12 +14,8 @@ export const mockStateKey = 'test';
 
 @Injectable()
 export class MockService extends ResourceService<Item> {
-  constructor(
-    @Inject(PLATFORM_ID) protected platformId: unknown,
-    protected httpClient: HttpClient,
-    protected transferState: TransferState
-  ) {
-    super(platformId, httpClient, transferState, mockApi, mockStateKey);
+  constructor() {
+    super(mockApi, mockStateKey);
   }
 }
 

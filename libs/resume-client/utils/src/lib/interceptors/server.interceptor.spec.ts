@@ -21,10 +21,6 @@ describe('ServerInterceptor', () => {
     interceptor = TestBed.inject(ServerInterceptor);
   });
 
-  it('should create', () => {
-    expect(interceptor).toBeDefined();
-  });
-
   describe('with serverUrl', () => {
     it('should add the serverUrl to the request URL', () => {
       const serverUrl = 'test-server-url';

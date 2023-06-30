@@ -1,6 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { LoggerModule } from 'ngx-logger';
@@ -15,7 +14,6 @@ import { AppStoreModule } from './app.store.module';
   declarations: [AppComponent],
   imports: [
     AppRoutingModule,
-    BrowserModule.withServerTransition({ appId: 'resume-client' }),
     HttpClientModule,
     LoggerModule.forRoot({
       serverLoggingUrl: `${environment.apiUrl}/log`,

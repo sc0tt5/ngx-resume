@@ -16,10 +16,6 @@ describe('LoggerController', () => {
     logger = jest.spyOn(Logger, 'error');
   });
 
-  it('should create', () => {
-    expect(controller).toBeDefined();
-  });
-
   it('should log the error to the console', () => {
     const error = 'test';
 

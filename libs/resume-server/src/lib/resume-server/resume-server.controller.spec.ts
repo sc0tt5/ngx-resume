@@ -29,10 +29,6 @@ describe('ResumeServerController', () => {
     service = module.get<ResumeServerService>(ResumeServerService);
   });
 
-  it('should create', () => {
-    expect(controller).toBeDefined();
-  });
-
   it('should return the resume data', done => {
     jest.spyOn(service, 'find');
 

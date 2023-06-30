@@ -24,10 +24,6 @@ describe('SidebarComponent', () => {
     nativeElement = fixture.nativeElement as HTMLElement;
   });
 
-  it('should create', () => {
-    expect(component).toBeDefined();
-  });
-
   it('should render section titles', () => {
     expect(nativeElement.querySelector('h2').textContent).toContain(mockSidebar.sections[0].title);
   });

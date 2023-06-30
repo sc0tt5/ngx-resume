@@ -19,10 +19,6 @@ describe('ViewerFacade', () => {
     service = TestBed.inject(ViewerFacade);
   });
 
-  it('should create', () => {
-    expect(service).toBeTruthy();
-  });
-
   describe('loadResume', () => {
     it('should dispatch the loadResume action', () => {
       jest.spyOn(store, 'dispatch');

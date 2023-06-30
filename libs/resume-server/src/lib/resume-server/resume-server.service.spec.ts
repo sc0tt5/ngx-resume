@@ -30,10 +30,6 @@ describe('ResumeServerService', () => {
     httpService = module.get<HttpService>(HttpService);
   });
 
-  it('should create', () => {
-    expect(service).toBeDefined();
-  });
-
   it('should return the resume data', done => {
     jest.spyOn(httpService, 'get');
 

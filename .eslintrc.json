@@ -63,7 +63,28 @@
             "accessibility": "explicit"
           }
         ],
-        "@typescript-eslint/member-ordering": "error",
+        "@typescript-eslint/member-ordering": [
+          "error",
+          {
+            "default": {
+              "optionalityOrder": "required-first",
+              "order": "alphabetically"
+            },
+            "classes": {
+              "memberTypes": [
+                "public-static-field",
+                "public-static-readonly-field",
+                "private-static-field",
+                "private-static-readonly-field",
+                "constructor",
+                "public-method",
+                "private-method"
+              ],
+              "optionalityOrder": "optional-first",
+              "order": "alphabetically"
+            }
+          }
+        ],
         "@typescript-eslint/naming-convention": [
           "error",
           {
@@ -216,7 +237,7 @@
     },
     {
       "files": ["*.html"],
-      "plugins": ["@angular-eslint/eslint-plugin-template"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {
         "@angular-eslint/template/banana-in-box": "error",
         "@angular-eslint/template/eqeqeq": "error",
