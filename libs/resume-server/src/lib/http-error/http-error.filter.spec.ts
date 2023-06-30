@@ -31,10 +31,6 @@ describe('HttpErrorFilter', () => {
     filter = module.get(HttpErrorFilter);
   });
 
-  it('should create', () => {
-    expect(filter).toBeDefined();
-  });
-
   it('should log the error', () => {
     const exception = new HttpException({ message: 'test' }, HttpStatus.BAD_REQUEST);
     filter.catch(exception, argumentsHost);

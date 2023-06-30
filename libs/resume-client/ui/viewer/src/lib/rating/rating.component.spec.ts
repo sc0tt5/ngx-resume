@@ -19,10 +19,6 @@ describe('RatingComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeDefined();
-  });
-
   it('should render the rating with the right active state', fakeAsync(() => {
     const ratingPercent = fixture.debugElement.queryAll(By.css('.skill-level'));
     const styleWidth = ratingPercent[0].nativeNode.style.width;

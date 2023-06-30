@@ -1,25 +1,21 @@
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Inject, PLATFORM_ID } from '@angular/core';
-import { StateKey, TransferState, makeStateKey } from '@angular/platform-browser';
+import { PLATFORM_ID, StateKey, TransferState, inject, makeStateKey } from '@angular/core';
 import { Params } from '@angular/router';
 
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 export class ResourceService<T> {
-  public itemKey: StateKey<T>;
-  public itemsKey: StateKey<T[]>;
-  public isBrowser: boolean;
+  private isBrowser: boolean;
+  private itemKey: StateKey<T>;
 
-  constructor(
-    @Inject(PLATFORM_ID) protected platformId: unknown,
-    protected http: HttpClient,
-    protected transferState: TransferState,
-    private endpoint: string,
-    private itemKeyName?: string
-  ) {
-    this.isBrowser = isPlatformBrowser(platformId);
+  private readonly http = inject(HttpClient);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly transferState = inject(TransferState);
+
+  constructor(private endpoint: string, private itemKeyName?: string) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
     this.itemKey = makeStateKey<T>(itemKeyName);
   }
 

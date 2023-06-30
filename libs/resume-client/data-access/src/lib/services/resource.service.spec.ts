@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { TransferState } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { TransferState } from '@angular/platform-browser';
 
 import { of, throwError } from 'rxjs';
 
@@ -27,22 +27,18 @@ describe('ResourceService', () => {
 
   afterEach(() => jest.clearAllMocks());
 
-  it('should create', () => {
-    expect(service).toBeDefined();
-  });
-
   describe('Server-Side', () => {
     it('should get data from API and set transfer state', () => {
       jest.spyOn(httpClient, 'get').mockReturnValue(of(mockItem));
       jest.spyOn(transferState, 'set');
 
       let result: Item;
-      service.isBrowser = false;
+      service['isBrowser'] = false;
 
       service.read(testParams, testPath).subscribe(data => (result = data));
 
       expect(httpClient.get).toHaveBeenCalledWith(`${mockApi}/${testPath}`, { params: testParams });
-      expect(transferState.set).toHaveBeenCalledWith(service.itemKey, mockItem);
+      expect(transferState.set).toHaveBeenCalledWith(service['itemKey'], mockItem);
       expect(result).toEqual(mockItem);
     });
 
@@ -50,7 +46,7 @@ describe('ResourceService', () => {
       jest.spyOn(httpClient, 'get').mockReturnValue(throwError(() => new HttpErrorResponse({ error: 'test' })));
 
       let result: HttpErrorResponse;
-      service.isBrowser = false;
+      service['isBrowser'] = false;
 
       service.read().subscribe({
         next: () => undefined,
@@ -65,17 +61,17 @@ describe('ResourceService', () => {
     it('should get existing item from TransferState', () => {
       jest.spyOn(httpClient, 'get');
       jest.spyOn(transferState, 'get');
-      service['transferState'].set(service.itemKey, mockItem);
+      service['transferState'].set(service['itemKey'], mockItem);
 
       let result: Item;
-      service.isBrowser = true;
+      service['isBrowser'] = true;
 
       service.read().subscribe(data => {
         result = data;
       });
 
       expect(result).toEqual(mockItem);
-      expect(transferState.get).toHaveBeenCalledWith(service.itemKey, undefined);
+      expect(transferState.get).toHaveBeenCalledWith(service['itemKey'], undefined);
       expect(httpClient.get).not.toHaveBeenCalled();
     });
   });

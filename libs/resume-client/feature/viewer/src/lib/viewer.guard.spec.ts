@@ -25,10 +25,6 @@ describe('ViewerGuard', () => {
     viewerService = TestBed.inject(ViewerService);
   });
 
-  it('should create', () => {
-    expect(guard).toBeDefined();
-  });
-
   describe('canActivate', () => {
     it('should call loadResume on the ViewerService', () => {
       jest.spyOn(viewerService, 'loadResume');

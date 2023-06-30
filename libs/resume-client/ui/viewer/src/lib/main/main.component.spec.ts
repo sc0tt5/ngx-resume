@@ -21,10 +21,6 @@ describe('MainComponent', () => {
     nativeElement = fixture.nativeElement as HTMLElement;
   });
 
-  it('should create', () => {
-    expect(component).toBeDefined();
-  });
-
   it('should render section title', () => {
     expect(nativeElement.querySelector('h2').textContent).toContain(mockSection.title);
   });

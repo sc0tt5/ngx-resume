@@ -1,10 +1,10 @@
 /* eslint-disable rxjs-angular/prefer-takeuntil */
 /* eslint-disable rxjs-angular/prefer-async-pipe */
 
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { filter, Observable, take } from 'rxjs';
+import { filter, take } from 'rxjs';
 
 import { ViewerService } from '@client/data-access';
 
@@ -14,9 +14,8 @@ import { ViewerService } from '@client/data-access';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
-  private fullName$: Observable<string>;
-
-  constructor(private readonly titleService: Title, private readonly viewer: ViewerService) {}
+  private readonly titleService = inject(Title);
+  private readonly viewer = inject(ViewerService);
 
   ngOnInit(): void {
     this.subscribeToFullName();
