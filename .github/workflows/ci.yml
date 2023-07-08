@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - '**'
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -18,14 +18,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm ci
-        run: npm ci
+      - name: Install
+        run: npm install
       - name: Build
         run: npm run build:ssr --if-present
-      - name: Test
+      - name: Test and coverage
         run: npm test
   lhci:
     name: Lighthouse
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -36,18 +37,23 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: npm install && npm install -g @lhci/cli@0.10.x
-      - name: run Lighthouse CI
+      - name: Install Lighthouse CLI
+        run: npm install -g @lhci/cli@0.10.x
+      - name: Run Lighthouse CI
         run: lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
   sonarcloud:
     name: SonarCloud
+    needs: build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
         with:
+          node-version: ${{ matrix.node-version }}
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master

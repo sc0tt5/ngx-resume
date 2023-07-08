@@ -2,7 +2,7 @@ const nxPreset = require('@nx/jest/preset').default;
 
 module.exports = {
   ...nxPreset,
-  coverageReporters: ['json-summary', 'json', 'html', 'text'],
+  coverageReporters: ['json-summary', 'json', 'html', 'text', 'lcov'],
   coveragePathIgnorePatterns: ['/node_modules/', '.html', '.mock.ts', '.module.ts', 'polyfills.ts', '.routes.ts'],
   moduleFileExtensions: ['ts', 'js', 'html'],
   reporters: [
