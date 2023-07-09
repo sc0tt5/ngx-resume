@@ -22,7 +22,7 @@ jobs:
         id: cache-npm
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          key: node-cache-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
         if: steps.cache-npm.outputs.cache-hit != 'true'
@@ -36,7 +36,7 @@ jobs:
         id: cache-tests
         with:
           path: tmp
-          key: ${{ runner.os }}-tests-${{ github.run_id }}
+          key: tests-cache-${{ github.run_id }}
 
       - name: Test
         if: steps.cache-tests.outputs.cache-hit != 'true'
@@ -56,7 +56,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          key: node-cache-${{ hashFiles('package-lock.json') }}
 
       - name: Install Lighthouse CLI
         run: npm install -g @lhci/cli@0.12.x
@@ -79,7 +79,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: tmp
-          key: ${{ runner.os }}-tests-${{ github.run_id }}
+          key: tests-cache-${{ github.run_id }}
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
