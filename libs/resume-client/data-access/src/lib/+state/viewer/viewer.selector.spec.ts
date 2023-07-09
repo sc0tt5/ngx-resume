@@ -6,14 +6,14 @@ import { resumeViewerSelectors } from './viewer.selectors';
 
 describe('resumeViewerSelectors', () => {
   describe('selectResumeLoaded', () => {
-    it('should return the header', () => {
+    it('should return the loaded state', () => {
       const state = { ...resumeInitialState, ...LOADED };
       expect(resumeViewerSelectors.selectResumeLoaded.projector(state)).toEqual(true);
     });
   });
 
   describe('selectResumeLoading', () => {
-    it('should return the header', () => {
+    it('should return the loading state', () => {
       const state = { ...resumeInitialState, ...LOADING };
       expect(resumeViewerSelectors.selectResumeLoading.projector(state)).toEqual(true);
     });

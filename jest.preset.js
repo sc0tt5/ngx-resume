@@ -16,6 +16,14 @@ module.exports = {
         hideIcon: true,
         pageTitle: 'Results'
       }
+    ],
+    [
+      'jest-sonar',
+      {
+        outputDirectory: './tmp/results',
+        outputName: 'sonar-report.xml',
+        reportedFilePath: 'absolute'
+      }
     ]
   ],
   resolver: '@nx/jest/plugins/resolver',
