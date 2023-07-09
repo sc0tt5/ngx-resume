@@ -13,6 +13,7 @@ module.exports = {
         'largest-contentful-paint': ['warn', { maxNumericValue: 1200 }],
         'speed-index': ['warn', { maxNumericValue: 1000 }],
         // application not setup for production server
+        'bf-cache': 'off', // no forward or backwards navigation
         'csp-xss': 'off',
         'unused-javascript': 'off', // remove from main bundle if possible
         'uses-text-compression': 'off',

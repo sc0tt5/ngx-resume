@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/sc0tt5/ngx-resume/actions/workflows/ci.yml/badge.svg)](https://github.com/sc0tt5/ngx-resume/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/sc0tt5/ngx-resume/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/sc0tt5/ngx-resume/actions/workflows/github-code-scanning/codeql)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sc0tt5_ngx-resume&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sc0tt5_ngx-resume)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sc0tt5_ngx-resume&metric=coverage)](https://sonarcloud.io/summary/new_code?id=sc0tt5_ngx-resume)
 
 This project was generated using [Nx](https://nx.dev) with [Angular](https://github.com/angular/angular), [Nest](https://github.com/nestjs/nest), and [server-side rendering](https://github.com/angular/universal). Built with [Bootstrap](https://getbootstrap.com/) 5 and [PurgeCSS](https://purgecss.com/). Example data created with [Pirate Ipsum](https://pirateipsum.me/).
 
