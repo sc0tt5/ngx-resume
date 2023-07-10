@@ -28,7 +28,7 @@ async function bootstrap() {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 declare const __non_webpack_require__: NodeRequire;
 const mainModule = __non_webpack_require__.main;
-const moduleFilename = (mainModule && mainModule.filename) || '';
+const moduleFilename = mainModule?.filename || '';
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
   bootstrap().catch(err => console.error(err));
 }

@@ -14,7 +14,7 @@ export interface Section {
   listType: ListType;
   title: string;
   icon?: string;
-  items?: Item[]; // todo: merge with list
+  items?: Item[]; // merge with list
   list?: List[];
   text?: string;
 }
