@@ -27,7 +27,7 @@ module.exports = {
       },
       startServerCommand: 'npm run prod:ssr',
       startServerReadyPattern: 'Listening',
-      startServerReadyTimeout: 300000,
+      startServerReadyTimeout: 100000,
       url: ['http://localhost:3333/']
     },
     upload: {

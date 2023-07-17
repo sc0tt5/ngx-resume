@@ -13,9 +13,6 @@
       "path": "./tsconfig.editor.json"
     }
   ],
-  "compilerOptions": {
-    "target": "ES2022"
-  },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

@@ -3,6 +3,7 @@
   "version": "14.0.0-alpha.1",
   "author": "Scott Robertson (https://github.com/sc0tt5)",
   "license": "SEE LICENSE",
+  "private": true,
   "engines": {
     "node": "^16.14.0 || ^18.10.0"
   },
@@ -47,12 +48,6 @@
     "postinstall": "node ./tools/scripts/decorate-angular-cli.js",
     "workspace-generator": "nx workspace-generator"
   },
-  "sideEffects": [
-    "**/main.ts",
-    "**/main.server.ts",
-    "**/polyfills.ts"
-  ],
-  "private": true,
   "dependencies": {
     "@angular/animations": "16.0.3",
     "@angular/common": "16.0.3",
@@ -148,6 +143,11 @@
     "ts-node": "10.9.1",
     "typescript": "5.0.4"
   },
+  "sideEffects": [
+    "**/main.ts",
+    "**/main.server.ts",
+    "**/polyfills.ts"
+  ],
   "overrides": {
     "css-select": "4.2.1"
   }
