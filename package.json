@@ -68,7 +68,7 @@
     "@ngrx/router-store": "16.0.0",
     "@ngrx/store": "16.0.0",
     "@ngrx/store-devtools": "16.0.0",
-    "@nx/angular": "16.2.2",
+    "@nx/angular": "17.1.1",
     "bootstrap": "5.2.3",
     "bootstrap-icons": "1.10.5",
     "ngx-logger": "5.0.12",
