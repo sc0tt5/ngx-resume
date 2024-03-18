@@ -15,10 +15,8 @@ export function app(): Express {
   const browserDistFolder = resolve(serverDistFolder, '../browser');
   const indexHtml = join(serverDistFolder, 'index.server.html');
 
-  const commonEngine = new CommonEngine();
-  // const commonEngine = new CommonEngine({
-  //   enablePerformanceProfiler: true
-  // });
+  const enablePerformanceProfiler = false; // set true to see performance result for SSR
+  const commonEngine = new CommonEngine({ enablePerformanceProfiler });
 
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);

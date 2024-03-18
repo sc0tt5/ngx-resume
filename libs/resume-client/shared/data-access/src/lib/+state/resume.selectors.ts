@@ -12,7 +12,9 @@ const selectResumeLoaded = createSelector(selectResumeState, state => state.load
 const selectResumeLoading = createSelector(selectResumeState, state => state.loading);
 const selectSidebar = createSelector(selectResume, resume => resume?.sidebar);
 const selectSidebarHeader = createSelector(selectSidebar, sidebar => sidebar?.header);
-const selectFullName = createSelector(selectSidebarHeader, header => `${header?.firstname} ${header?.lastname}`);
+const selectFullName = createSelector(selectSidebarHeader, header =>
+  header?.firstname && header?.lastname ? `${header?.firstname} ${header?.lastname}` : ''
+);
 
 export const resumeSelectors = {
   selectFullName,

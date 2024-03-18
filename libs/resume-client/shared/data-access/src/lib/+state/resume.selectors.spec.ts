@@ -10,6 +10,10 @@ describe('resumeSelectors', () => {
         `${mockResume.sidebar.header.firstname} ${mockResume.sidebar.header.lastname}`
       );
     });
+
+    it('should return empty string if first or last name missing', () => {
+      expect(resumeSelectors.selectFullName.projector({ firstname: '', lastname: '', title: '' })).toEqual('');
+    });
   });
 
   describe('selectResume', () => {
