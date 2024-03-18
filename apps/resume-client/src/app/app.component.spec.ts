@@ -2,8 +2,8 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 import { Title } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { VIEWER_PROVIDER_TEST } from '@client/data-access';
-import { mockHeader } from '@shared/models';
+import { VIEWER_PROVIDER_TEST } from '@resume/shared/data-access';
+import { mockHeader } from '@resume/shared/types';
 
 import { AppComponent } from './app.component';
 
@@ -14,8 +14,7 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent],
+      imports: [AppComponent, RouterTestingModule],
       providers: [VIEWER_PROVIDER_TEST, Title]
     }).compileComponents();
 
@@ -23,10 +22,6 @@ describe('AppComponent', () => {
     app = fixture.componentInstance;
     title = TestBed.inject(Title);
     fixture.detectChanges();
-  });
-
-  it('should create the app', () => {
-    expect(app).toBeTruthy();
   });
 
   describe('subscribeToFullName', () => {

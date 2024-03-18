@@ -1,22 +1,23 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
 /out-tsc
-/coverage
+dist
+tmp
 
 # dependencies
-/node_modules
+node_modules
 
 # vscode
 .vscode/*
 !.vscode/extensions.json
 
 # other
-/.angular/cache
+.angular
 .DS_Store
 .lighthouseci
-
-/apps/resume-client/db.json
+.nx/cache
 db.json
+Thumbs.db
+
+.nx/cache

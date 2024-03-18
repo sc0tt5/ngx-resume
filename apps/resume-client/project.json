@@ -2,195 +2,121 @@
   "name": "resume-client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "generators": {
-    "@schematics/angular:component": {
-      "style": "scss"
-    }
-  },
+  "prefix": "res",
   "sourceRoot": "apps/resume-client/src",
-  "prefix": "resume-client",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "optimization": {
-          "scripts": true,
-          "styles": {
-            "minify": true,
-            "inlineCritical": false
-          },
-          "fonts": true
-        },
-        "outputHashing": "bundles",
-        "sourceMap": false,
-        "namedChunks": false,
-        "extractLicenses": true,
-        "vendorChunk": false,
-        "buildOptimizer": true,
-        "outputPath": "dist/resume-client/browser",
+        "outputPath": "dist/resume-client",
         "index": "apps/resume-client/src/index.html",
-        "main": "apps/resume-client/src/main.ts",
-        "polyfills": "apps/resume-client/src/polyfills.ts",
+        "browser": "apps/resume-client/src/main.ts",
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/resume-client/tsconfig.app.json",
-        "aot": true,
+        "inlineStyleLanguage": "scss",
         "assets": [
           "apps/resume-client/src/favicon.ico",
           "apps/resume-client/src/robots.txt",
           "apps/resume-client/src/assets",
           {
-            "glob": "fonts/**/*",
-            "input": "./node_modules/bootstrap-icons/font/fonts",
-            "output": "/assets/"
+            "glob": "**/*",
+            "input": "apps/resume-client/src/assets",
+            "output": "assets"
           }
         ],
-        "resourcesOutputPath": "assets/fonts",
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/resume-client/ui/shared/src/assets/stylesheets"]
+          "includePaths": ["./libs/resume-client/shared/ui/src/assets/stylesheets"]
         },
         "styles": ["apps/resume-client/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "server": "apps/resume-client/src/main.server.ts",
+        "prerender": false,
+        "ssr": {
+          "entry": "apps/resume-client/server.ts"
+        }
       },
       "configurations": {
-        "local": {
-          "buildOptimizer": false,
+        "production": {
+          "optimization": {
+            "styles": {
+              "removeSpecialComments": false
+            }
+          },
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "750kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "bundles",
+          "fileReplacements": [
+            {
+              "replace": "apps/resume-client/src/environments/environment.ts",
+              "with": "apps/resume-client/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
           "optimization": false,
+          "extractLicenses": false,
           "sourceMap": true,
-          "vendorChunk": true,
+          "outputHashing": "bundles",
           "fileReplacements": [
             {
               "replace": "apps/resume-client/src/environments/environment.ts",
               "with": "apps/resume-client/src/environments/environment.local.ts"
             }
           ]
-        },
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "apps/resume-client/src/environments/environment.ts",
-              "with": "apps/resume-client/src/environments/environment.prod.ts"
-            }
-          ],
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "5mb"
-            },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "10kb"
-            }
-          ]
         }
       },
-      "outputs": ["{options.outputPath}"]
+      "defaultConfiguration": "production"
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "options": {
-        "browserTarget": "resume-client:build",
         "proxyConfig": "apps/resume-client/proxy.conf.json"
       },
       "configurations": {
-        "local": {
-          "browserTarget": "resume-client:build:local"
-        },
         "production": {
-          "browserTarget": "resume-client:build:production"
+          "buildTarget": "resume-client:build:production"
+        },
+        "development": {
+          "buildTarget": "resume-client:build:development"
         }
-      }
+      },
+      "defaultConfiguration": "production"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "resume-client:build"
+        "buildTarget": "resume-client:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/tmp/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/resume-client/jest.config.ts"
-      },
-      "outputs": ["{workspaceRoot}/tmp/coverage/apps/resume-client"]
-    },
-    "server": {
-      "executor": "@angular-devkit/build-angular:server",
-      "options": {
-        "sourceMap": false,
-        "optimization": {
-          "scripts": false,
-          "styles": true
-        },
-        "outputHashing": "media",
-        "outputPath": "dist/resume-client/server",
-        "main": "apps/resume-client/server.ts",
-        "tsConfig": "apps/resume-client/tsconfig.server.json",
-        "stylePreprocessorOptions": {
-          "includePaths": ["libs/resume-client/ui/shared/src/assets/stylesheets"]
-        },
-        "externalDependencies": [
-          "@nestjs/microservices",
-          "@nestjs/microservices/microservices-module",
-          "@nestjs/websockets",
-          "@nestjs/websockets/socket-module",
-          "cache-manager",
-          "class-transformer",
-          "class-validator"
-        ]
-      },
-      "configurations": {
-        "local": {
-          "fileReplacements": [
-            {
-              "replace": "apps/resume-client/src/environments/environment.ts",
-              "with": "apps/resume-client/src/environments/environment.local.ts"
-            }
-          ]
-        },
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "apps/resume-client/src/environments/environment.ts",
-              "with": "apps/resume-client/src/environments/environment.prod.ts"
-            }
-          ]
-        }
-      }
-    },
-    "serve-ssr": {
-      "executor": "@nguniversal/builders:ssr-dev-server",
-      "options": {
-        "browserTarget": "resume-client:build",
-        "serverTarget": "resume-client:server"
-      },
-      "configurations": {
-        "local": {
-          "browserTarget": "resume-client:build:local",
-          "serverTarget": "resume-client:server:local"
-        },
-        "production": {
-          "browserTarget": "resume-client:build:production",
-          "serverTarget": "resume-client:server:production"
-        }
-      }
-    },
-    "prerender": {
-      "executor": "@nguniversal/builders:prerender",
-      "options": {
-        "browserTarget": "resume-client:build:production",
-        "serverTarget": "resume-client:server:production",
-        "routes": ["/resume"]
+        "jestConfig": "apps/resume-client/jest.config.ts",
+        "passWithNoTests": false
       }
     },
     "analyze": {
       "executor": "@ngx-builders/analyze:analyze",
       "options": {
         "outputPath": "dist/resume-client/browser"
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["apps/resume-client/**/*.ts", "apps/resume-client/**/*.html"]
       }
     }
   },
