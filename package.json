@@ -8,7 +8,7 @@
     "node": "^18.13.0 || ^20.9.0"
   },
   "scripts": {
-    "start": "concurrently --names 'database,angular' --prefix-colors 'blue,yellow' --kill-others \"npm:serve:database\" \"nx run resume-client:serve --configuration=development --open\"",
+    "start": "concurrently --names 'database,angular' --prefix-colors 'blue,yellow' --kill-others \"npm:serve:database\" \"nx run resume-client:serve --configuration=development\"",
     "start:prod": "concurrently --names 'database,angular' --prefix-colors 'blue,yellow' --kill-others \"npm:serve:database\" \"npm run build:prod && npm run serve:prod\"",
     "build:prod": "nx build resume-client --configuration=production --skip-nx-cache",
     "serve:prod": "node dist/resume-client/server/server.mjs",
@@ -20,7 +20,6 @@
     "test:summary": "ts-node tools/scripts/merge-coverage.ts",
     "lint": "npm run lint:styles && nx run-many --target=lint --all",
     "lint:styles": "stylelint \"{apps,libs}/**/*.scss\"",
-    "analyze:bundles": "nx run resume-client:analyze --diffLoading=false",
     "compodoc:readme": "ts-node tools/scripts/transform-doc-index.ts",
     "compodoc": "compodoc --disableCoverage -p tsconfig.doc.json --unitTestCoverage tmp/coverage/coverage-summary.json -a apps/resume-client/src/assets -d tmp/documentation -s -o",
     "dep-graph": "nx dep-graph",
@@ -68,7 +67,6 @@
     "@lhci/cli": "0.13.0",
     "@ngrx/schematics": "17.0.1",
     "@ngrx/store-devtools": "17.0.1",
-    "@ngx-builders/analyze": "4.0.0",
     "@nx/esbuild": "18.1.1",
     "@nx/eslint": "18.1.1",
     "@nx/eslint-plugin": "18.1.1",

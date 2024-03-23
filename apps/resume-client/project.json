@@ -113,12 +113,6 @@
         "jestConfig": "apps/resume-client/jest.config.ts",
         "passWithNoTests": false
       }
-    },
-    "analyze": {
-      "executor": "@ngx-builders/analyze:analyze",
-      "options": {
-        "outputPath": "dist/resume-client/browser"
-      }
     }
   },
   "tags": ["scope:resume-client"]
