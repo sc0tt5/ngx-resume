@@ -1,9 +1,9 @@
-import { Routes } from '@angular/router';
+import { Route } from '@angular/router';
 
-export const APP_ROUTES: Routes = [
+export const appRoutes: Route[] = [
   { path: '', redirectTo: '/viewer', pathMatch: 'full' },
   {
     path: 'viewer',
-    loadChildren: () => import('@client/feature/viewer').then(m => m.ViewerModule)
+    loadChildren: () => import('@resume/viewer/feature').then(f => f.viewerRoutes)
   }
 ];

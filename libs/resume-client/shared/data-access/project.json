@@ -1,0 +1,24 @@
+{
+  "name": "resume-client-data-access",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/resume-client/shared/data-access/src",
+  "prefix": "res-shrd-da",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/tmp/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/resume-client/shared/data-access/jest.config.ts",
+        "passWithNoTests": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:resume-client-shared", "type:data-access"]
+}

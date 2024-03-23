@@ -9,6 +9,8 @@ export class PostBuild {
   private static files: string[];
 
   public static run(dir = './dist/resume-client/browser'): void {
+    console.log('Running post build...');
+
     this.directory = dir;
     this.files = this.getFilesFromPath();
 

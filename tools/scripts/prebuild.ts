@@ -6,6 +6,8 @@ const DB_JSON = 'db.json';
 
 export class PreBuild {
   public static run(): void {
+    console.log('Running pre build...');
+
     const rootDir = this.getAppRootDir(DB_EXAMPLE_JSON);
 
     !existsSync(DB_JSON) &&

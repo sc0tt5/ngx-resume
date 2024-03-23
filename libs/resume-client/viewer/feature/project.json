@@ -1,0 +1,24 @@
+{
+  "name": "resume-client-feature-viewer",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/resume-client/viewer/feature/src",
+  "prefix": "res-ft-vi",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/tmp/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/resume-client/viewer/feature/jest.config.ts",
+        "passWithNoTests": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:resume-client-viewer", "type:feature"]
+}

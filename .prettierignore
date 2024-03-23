@@ -1,7 +1,8 @@
 # Add files here to ignore them from prettier formatting
-
-coverage/
-dist/
-node_modules/
+/.nx/cache
+/coverage
+/dist
+/node_modules
+/tmp
+.angular
 package-lock.json
-tmp/

@@ -25,10 +25,10 @@ module.exports = {
         preset: 'desktop',
         chromeFlags: '--no-sandbox --headless'
       },
-      startServerCommand: 'npm run prod:ssr',
+      startServerCommand: 'npm run start:prod',
       startServerReadyPattern: 'Listening',
       startServerReadyTimeout: 100000,
-      url: ['http://localhost:3333/']
+      url: ['http://localhost:4000/']
     },
     upload: {
       outputDir: './tmp/lighthouse',
