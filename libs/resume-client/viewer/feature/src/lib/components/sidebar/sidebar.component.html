@@ -2,14 +2,14 @@
   <div class="col">
     <div class="container-fluid">
       <h1 class="lh-1">
-        <span class="fw-bold" [innerHTML]="header.firstname"></span>
-        <span class="fw-light" [innerHTML]="header.lastname"></span>
+        <span class="fw-bold">{{ header.firstname }}</span>
+        <span class="fw-light">{{ header.lastname }}</span>
       </h1>
-      <span class="fw-bold" [innerHTML]="header.title"></span>
+      <span class="fw-bold">{{ header.title }}</span>
 
       <!-- contact info, skills, etc. -->
       <div *ngFor="let section of sections" class="sidebar__section">
-        <h2 class="border-top fw-bold pt-3 pb-2 text-dark text-uppercase" [innerHTML]="section.title"></h2>
+        <h2 class="border-top fw-bold pt-3 pb-2 text-dark text-uppercase">{{ section.title }}</h2>
 
         <!-- education -->
         <div *ngIf="section.listType === 'education'">
@@ -17,16 +17,16 @@
             <div class="row">
               <div class="col text-small">
                 <!-- degree, university, etc. -->
-                <span class="d-block fw-bold" [innerHTML]="block.title"></span>
-                <span class="d-block" [innerHTML]="block.place"></span>
-                <span class="details__location" [innerHTML]="block.from"></span>
+                <span class="d-block fw-bold">{{ block.title }}</span>
+                <span class="d-block">{{ block.place }}</span>
+                <span class="details__location">{{ block.from }}</span>
                 <span> - </span>
-                <span [innerHTML]="block.to"></span>
+                <span>{{ block.to }}</span>
 
                 <!-- bullet points -->
                 <div class="list">
                   <ul>
-                    <li *ngFor="let bullet of block.bullets" [innerHTML]="bullet.item"></li>
+                    <li *ngFor="let bullet of block.bullets">{{ bullet.item }}</li>
                   </ul>
                 </div>
               </div>
@@ -39,8 +39,8 @@
           <li *ngFor="let item of section.items">
             <a [href]="item.href" [target]="item.target" rel="noopener noreferrer">
               <i [attr.class]="'bi bi-' + item.icon" [ngClass]="{ 'icon--loaded': item.icon }"></i>
-              <span [innerHTML]="item.text"></span
-            ></a>
+              <span>{{ item.text }}</span></a
+            >
           </li>
         </ul>
 
