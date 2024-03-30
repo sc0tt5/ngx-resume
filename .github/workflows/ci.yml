@@ -11,14 +11,14 @@ jobs:
     name: Build and Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
 
       - name: Cache NPM dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: cache-npm
         with:
           path: node_modules
@@ -32,7 +32,7 @@ jobs:
         run: npm run build:prod
 
       - name: Cache test results
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: cache-tests
         with:
           path: tmp
@@ -47,13 +47,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
 
       - name: Get cached NPM dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node-cache-${{ hashFiles('package-lock.json') }}
@@ -71,12 +71,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
       - name: Get cached test results
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: tmp
           key: tests-cache-${{ github.run_id }}
