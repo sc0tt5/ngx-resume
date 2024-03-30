@@ -1,0 +1,6 @@
+<ng-container *ngIf="resume$ | async as resume">
+  <header></header>
+  <aside resFtViewerSidebar [header]="resume.sidebar.header" [sections]="resume.sidebar.sections"></aside>
+  <main resFtViewerMain [sections]="resume.main.sections"></main>
+  <footer></footer>
+</ng-container>

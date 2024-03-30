@@ -128,22 +128,11 @@
                   "scope:resume-client-shared",
                   "scope:resume-client-viewer",
                   "scope:shared"
-                ],
-                "bannedExternalImports": ["@nestjs/*"]
+                ]
               },
               {
                 "sourceTag": "scope:resume-client-viewer",
-                "onlyDependOnLibsWithTags": [
-                  "scope:resume-client-shared",
-                  "scope:resume-client-viewer",
-                  "scope:shared"
-                ],
-                "bannedExternalImports": ["@nestjs/*"]
-              },
-              {
-                "sourceTag": "scope:resume-server",
-                "onlyDependOnLibsWithTags": ["scope:resume-server", "scope:shared"],
-                "bannedExternalImports": ["@angular/*"]
+                "onlyDependOnLibsWithTags": ["scope:resume-client-shared", "scope:resume-client-viewer", "scope:shared"]
               },
               {
                 "sourceTag": "scope:shared",
@@ -213,11 +202,7 @@
                 "group": "builtin"
               },
               {
-                "pattern": "@nestjs/**",
-                "group": "builtin"
-              },
-              {
-                "pattern": "@ngx-resume/**",
+                "pattern": "@client/**",
                 "group": "internal"
               }
             ],

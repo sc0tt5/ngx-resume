@@ -1,0 +1,15 @@
+{
+  "name": "resume-client-types",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/resume-client/types/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/package.json"]
+      }
+    }
+  },
+  "tags": ["scope:resume-client-shared", "type:util"]
+}

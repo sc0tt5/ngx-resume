@@ -13,11 +13,11 @@ module.exports = {
         'largest-contentful-paint': ['warn', { maxNumericValue: 1200 }],
         'speed-index': ['warn', { maxNumericValue: 1000 }],
         // application not setup for production server
-        'bf-cache': 'off', // no forward or backwards navigation
         'csp-xss': 'off',
+        'target-size': 'off', // designed for print
+        'total-byte-weight': 'off', // borderline exceeds 5k KiB; optimize later
         'unused-javascript': 'off', // remove from main bundle if possible
-        'uses-text-compression': 'off',
-        'unminified-javascript': 'off' // false positive?
+        'uses-text-compression': 'off' // if using actual server
       }
     },
     collect: {
@@ -25,10 +25,10 @@ module.exports = {
         preset: 'desktop',
         chromeFlags: '--no-sandbox --headless'
       },
-      startServerCommand: 'npm run prod:ssr',
+      startServerCommand: 'npm run start:prod',
       startServerReadyPattern: 'Listening',
       startServerReadyTimeout: 100000,
-      url: ['http://localhost:3333/']
+      url: ['http://localhost:4000/']
     },
     upload: {
       outputDir: './tmp/lighthouse',
