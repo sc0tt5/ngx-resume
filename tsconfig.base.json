@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".",
     "declaration": false,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
@@ -10,7 +9,7 @@
     "importHelpers": true,
     "lib": ["es2020", "dom"],
     "module": "ES2022",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -22,12 +21,11 @@
     "sourceMap": true,
     "strict": true,
     "target": "ES2022",
-    "typeRoots": ["node_modules/@types"],
     "paths": {
-      "@resume/shared/data-access": ["libs/resume-client/shared/data-access/src/index.ts"],
-      "@resume/shared/types": ["libs/resume-client/shared/types/src/index.ts"],
-      "@resume/shared/ui": ["libs/resume-client/shared/ui/src/index.ts"],
-      "@resume/viewer/feature": ["libs/resume-client/viewer/feature/src/index.ts"]
+      "@resume/shared/data-access": ["./libs/resume-client/shared/data-access/src/index.ts"],
+      "@resume/shared/types": ["./libs/resume-client/shared/types/src/index.ts"],
+      "@resume/shared/ui": ["./libs/resume-client/shared/ui/src/index.ts"],
+      "@resume/viewer/feature": ["./libs/resume-client/viewer/feature/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

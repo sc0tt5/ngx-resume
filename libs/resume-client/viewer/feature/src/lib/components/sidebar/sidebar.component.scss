@@ -1,4 +1,4 @@
-@import 'ui-common';
+@use 'ui-common' as *;
 
 $sidebar-disclaimer-height: in-to-pt(0.5);
 $sidebar-section-container-height: calc(#{$page-height} - (#{$main-padding} * 2) - #{$sidebar-disclaimer-height});
@@ -52,7 +52,7 @@ h1 {
 // sidebar container
 // --------------------------------------
 .sidebar__section {
-  margin-top: 14pt;
+  margin-top: 11.5pt;
 
   // each section (contact info, skills, etc.)
   & ul {
@@ -62,6 +62,7 @@ h1 {
 
     /* stylelint-disable-next-line no-descending-specificity */
     & li > a {
+      color: $text-dark;
       text-decoration: none;
 
       &:hover {

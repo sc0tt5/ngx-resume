@@ -1,16 +1,24 @@
-import { Provider } from '@angular/core';
-
-import { Observable } from 'rxjs';
+import { inject, Injectable, signal } from '@angular/core';
 
 import { Resume } from '@resume/shared/types';
 
-import { ResumeFacade } from '../+state/resume.facade';
+import { catchError, EMPTY, finalize, Observable } from 'rxjs';
+import { ResumeApiService } from './resume-api.service';
 
-export abstract class ResumeService {
-  abstract fullName$: Observable<string>;
-  abstract resume$: Observable<Resume>;
-  abstract loaded$: Observable<boolean>;
-  abstract loadResume(): void;
+@Injectable({ providedIn: 'root' })
+export class ResumeService {
+  readonly error = signal(false);
+  readonly loaded = signal(false);
+
+  private readonly resumeApiService = inject(ResumeApiService);
+
+  loadResume$(): Observable<Resume> {
+    return this.resumeApiService.read().pipe(
+      catchError(() => {
+        this.error.set(true);
+        return EMPTY;
+      }),
+      finalize(() => this.loaded.set(true))
+    );
+  }
 }
-
-export const RESUME_PROVIDER: Provider = { provide: ResumeService, useClass: ResumeFacade };

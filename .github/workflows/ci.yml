@@ -58,11 +58,8 @@ jobs:
           path: node_modules
           key: node-cache-${{ hashFiles('package-lock.json') }}
 
-      - name: Install Lighthouse CLI
-        run: npm install -g @lhci/cli@0.13.x
-
       - name: Run Lighthouse CI
-        run: lhci autorun
+        run: npm run lighthouse
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 

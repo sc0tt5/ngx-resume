@@ -1,19 +1,21 @@
 /**
 * 1. In a larger codebase we would want to have a 7-1 pattern folder structure
-* 2. Purge CSS will eliminate most unused styles from vendors
+* 2. Bootstrap and Bootstrap Icons are imported once for the app shell.
 */
 
 // helpers
-@import 'utilities/variables', 'utilities/functions';
+@use 'utilities/variables' as *;
+@use 'utilities/functions' as *;
 
 // vendor
-@import 'bootstrap/scss/bootstrap', 'bootstrap-icons';
-
-/**
-* Copy BS icons used to prevent Purge CSS from removing (saves 80kb to styles bundle).
-*/
-
-/*! purgecss start ignore */
+@use 'bootstrap/scss/bootstrap' as bootstrap with (
+  $primary: $primary,
+  $secondary: $secondary,
+  $light: $light,
+  $dark: $dark,
+  $theme-colors: $theme-colors
+);
+@use 'bootstrap-icons/font/bootstrap-icons' as *;
 
 .bi-globe::before {
   content: '\f3ee';
@@ -35,8 +37,6 @@
   content: '\f32c';
 }
 
-/*! purgecss end ignore */
-
 // overrides
 body {
   background-color: #5f6368;
@@ -45,11 +45,11 @@ body {
   font-family: sans-serif;
   font-weight: 300;
   height: $page-height;
-  hyphens: auto;
+  hyphens: none;
   margin: calc((100vh - #{$page-height}) / 2.5) auto 0;
   width: $page-width;
 
-  @include media-breakpoint-down(lg) {
+  @include bootstrap.media-breakpoint-down(lg) {
     margin: auto;
   }
 }

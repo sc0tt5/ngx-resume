@@ -1,9 +1,9 @@
-/* stylelint-disable scss/no-global-function-names */
 // ----------------------------------------------------------------------------
 // This file contains all application-wide Sass variables.
 // ----------------------------------------------------------------------------
 
-@import 'functions';
+@use 'sass:map';
+@use 'functions' as *;
 
 // header and footer
 // --------------------------------------
@@ -13,12 +13,12 @@ $header-footer-height: 10pt;
 // --------------------------------------
 $page-height: in-to-pt(11);
 $page-width: in-to-pt(8.5);
-$page-height-without-header-footer: calc(#{$page-height} - calc(#{$header-footer-height}* 2));
+$page-height-without-header-footer: calc(#{$page-height} - calc(#{$header-footer-height} * 2));
 
 // main
 // --------------------------------------
 $main-padding: in-to-pt(0.25);
-$main-width: in-to-pt(5.7);
+$main-width: in-to-pt(5.95);
 
 // font size
 // --------------------------------------
@@ -69,4 +69,4 @@ $custom-colors: (
 );
 
 // merge custom to theme
-$theme-colors: map-merge($theme-colors, $custom-colors);
+$theme-colors: map.merge($theme-colors, $custom-colors);
