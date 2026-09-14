@@ -5,18 +5,16 @@ import { mockSection } from '@resume/shared/types';
 import { MainComponent } from './main.component';
 
 describe('MainComponent', () => {
-  let component: MainComponent;
   let nativeElement: HTMLElement;
   let fixture: ComponentFixture<MainComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [MainComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MainComponent);
-    component = fixture.componentInstance;
-    component.sections = [mockSection];
+    fixture.componentRef.setInput('sections', [mockSection]);
     fixture.detectChanges();
     nativeElement = fixture.nativeElement as HTMLElement;
   });

@@ -1,4 +1,4 @@
-@import 'ui-common';
+@use 'ui-common' as *;
 
 :host {
   background-color: #fff;
@@ -15,5 +15,22 @@
   &::before {
     color: $secondary;
     content: '  | ';
+  }
+}
+
+.list--compact {
+  margin-right: -15pt;
+
+  & ul {
+    padding-left: 0 !important;
+  }
+
+  & li {
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  & li::before {
+    content: none;
   }
 }

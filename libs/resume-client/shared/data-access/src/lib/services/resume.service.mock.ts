@@ -1,17 +1,15 @@
-import { Provider } from '@angular/core';
+import { Provider, signal } from '@angular/core';
 
-import { of } from 'rxjs';
-
-import { mockHeader, mockResume } from '@resume/shared/types';
-
+import { mockResume, Resume } from '@resume/shared/types';
+import { Observable, of } from 'rxjs';
 import { ResumeService } from './resume.service';
 
-class MockResumeService implements ResumeService {
-  fullName$ = of(`${mockHeader.firstname} ${mockHeader.firstname}`);
-  resume$ = of(mockResume);
-  loaded$ = of(true);
-  loadResume(): void {
-    return;
+class MockResumeService {
+  readonly error = signal<unknown>(null);
+  readonly loaded = signal(true);
+
+  loadResume$(): Observable<Resume> {
+    return of(mockResume);
   }
 }
 

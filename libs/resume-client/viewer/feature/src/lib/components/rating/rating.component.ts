@@ -1,18 +1,15 @@
-import { NgStyle } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 @Component({
-  standalone: true,
-  imports: [NgStyle],
   selector: '[resFtViewerRating]',
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  host: { class: 'pb-3' }
 })
 export class RatingComponent {
-  @Input({ required: true }) max = 10;
-  @Input({ required: true }) name = '';
-  @Input({ required: true }) rating = 0;
+  readonly max = input.required<number>();
+  readonly name = input.required<string>();
+  readonly rating = input.required<number>();
 
-  @HostBinding('class') private readonly hostClasses = 'pb-3';
+  readonly ratingWidth = computed(() => `${(this.rating() / this.max()) * 100}%`);
 }

@@ -1,4 +1,4 @@
-import { copyFile, existsSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 
 const DB_EXAMPLE_JSON = 'db.example.json';
@@ -9,17 +9,16 @@ export class PreBuild {
     console.log('Running pre build...');
 
     const rootDir = this.getAppRootDir(DB_EXAMPLE_JSON);
+    const databasePath = path.join(rootDir, DB_JSON);
 
-    !existsSync(DB_JSON) &&
-      copyFile(
-        `${rootDir}/${DB_EXAMPLE_JSON}`,
-        `${rootDir}/${DB_JSON}`,
-        err => (err && console.log('Error Found:', err)) || console.log('\ndb.json file created')
-      );
+    if (!existsSync(databasePath)) {
+      writeFileSync(databasePath, readFileSync(path.join(rootDir, DB_EXAMPLE_JSON), 'utf8'));
+      console.log('\ndb.json file created');
+    }
   }
 
-  private static getAppRootDir(fileToCheck: string) {
-    let currentDir = __dirname;
+  private static getAppRootDir(fileToCheck: string): string {
+    let currentDir = path.dirname(path.resolve(process.argv[1]));
 
     while (!existsSync(path.join(currentDir, fileToCheck))) {
       currentDir = path.join(currentDir, '..');
