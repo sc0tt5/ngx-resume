@@ -1,44 +1,54 @@
 <div class="row">
   <div class="col">
     <section class="container-fluid">
-      <!-- main sections - projects, education, etc. -->
-      <ng-container *ngFor="let section of sections; index as i" class="content-box">
-        <h2 class="fw-bold pb-2 text-dark text-uppercase" [ngClass]="{ 'border-top pt-3': i !== 0 }">
+      @for (section of sections(); track section.title; let i = $index) {
+        <h2 class="fw-bold pb-2 text-dark text-uppercase" [class.border-top]="i !== 0" [class.pt-3]="i !== 0">
           {{ section.title }}
         </h2>
 
-        <ng-container [ngSwitch]="section.listType">
-          <!-- intro -->
-          <ng-container *ngSwitchCase="listTypeIntro">
+        @switch (section.listType) {
+          @case (listTypeIntro) {
             <p class="text-medium">{{ section.text }}</p>
-          </ng-container>
+          }
 
-          <!-- experience blocks -->
-          <ng-container *ngSwitchCase="listTypeExperience">
-            <div class="row pb-3" *ngFor="let block of section.list">
-              <div class="col text-small">
-                <!-- title, company, etc. -->
-                <div class="title-company">
-                  <span class="fw-bold">{{ block.title }}</span>
-                  <span> - </span>
-                  <span>{{ block.place }}</span>
-                  <span class="title-company__separator">{{ block.location }}</span>
-                  <span class="title-company__separator">{{ block.from }}</span>
-                  <span> - </span>
-                  <span>{{ block.to }}</span>
-                </div>
+          @case (listTypeExperience) {
+            @for (block of section.list ?? []; track block.title + block.place + block.from) {
+              <div class="row pb-3">
+                <div class="col text-small">
+                  <div class="title-company">
+                    <span class="fw-bold">{{ block.title }}</span>
+                    @if (block.place) {
+                      <span> · </span>
+                      <span>{{ block.place }}</span>
+                    }
+                    @if (block.location) {
+                      <span class="title-company__separator">{{ block.location }}</span>
+                    }
+                    @if (block.from || block.to) {
+                      <span class="title-company__separator">{{ block.from }}</span>
+                      <span> – </span>
+                      <span>{{ block.to }}</span>
+                    }
+                  </div>
 
-                <!-- bullet points -->
-                <div *ngIf="block.bullets" class="list">
-                  <ul>
-                    <li *ngFor="let bullet of block.bullets" class="text-medium">{{ bullet.item }}</li>
-                  </ul>
+                  @if (block.bullets.length) {
+                    <div
+                      class="list"
+                      [class.list--compact]="!block.place && !block.location && !block.from && !block.to"
+                    >
+                      <ul>
+                        @for (bullet of block.bullets; track bullet.item) {
+                          <li class="text-medium">{{ bullet.item }}</li>
+                        }
+                      </ul>
+                    </div>
+                  }
                 </div>
               </div>
-            </div>
-          </ng-container>
-        </ng-container>
-      </ng-container>
+            }
+          }
+        }
+      }
     </section>
   </div>
 </div>

@@ -16,8 +16,6 @@ node_modules
 .angular
 .DS_Store
 .lighthouseci
-.nx/cache
+.nx/
 db.json
 Thumbs.db
-
-.nx/cache

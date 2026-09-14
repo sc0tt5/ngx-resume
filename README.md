@@ -4,17 +4,19 @@
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=sc0tt5_ngx-resume&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=sc0tt5_ngx-resume)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sc0tt5_ngx-resume&metric=coverage)](https://sonarcloud.io/summary/new_code?id=sc0tt5_ngx-resume)
 
-This project was generated using [Nx](https://nx.dev) with [Angular](https://github.com/angular/angular), [Nest](https://github.com/nestjs/nest), and [server-side rendering](https://github.com/angular/universal). Built with [Bootstrap](https://getbootstrap.com/) 5 and [PurgeCSS](https://purgecss.com/). Example data created with [Pirate Ipsum](https://pirateipsum.me/).
+This project uses [Nx](https://nx.dev), [Angular](https://github.com/angular/angular), server-side rendering, and [Bootstrap](https://getbootstrap.com/) 5. Example data created with [Pirate Ipsum](https://pirateipsum.me/).
 
 ![Resume thumbnail](apps/resume-client/src/assets/resume-thumb-readme.png)
 
 ## Installation
 
+Use Node `^22.22.3 || ^24.15.0 || ^26.0.0`.
+
 ```text
 npm install
 ```
 
-**Note:** Before running the project, create `db.json` in the project root using `db.example.json` as a guide. This is to prevent your personal data from accidentally being pushed to a public server.
+**Note:** Startup creates `db.json` from `db.example.json` only when it is missing. Existing `db.json` content is preserved. This personal data file is gitignored.
 
 ## Development
 
@@ -27,27 +29,15 @@ npm start
 ## Production
 
 ```bash
-npm run prod:ssr
+npm run start:prod
 ```
 
-Then open browser to [http://localhost:3333/viewer](http://localhost:3333/viewer)
+Then open browser to [http://localhost:4000/viewer](http://localhost:4000/viewer)
 
 ## Unit Tests
 
 ```text
 npm run test
-```
-
-## Documentation
-
-```text
-npm run compodoc
-```
-
-## Analyze Bundles
-
-```text
-npm run analyze:bundles
 ```
 
 ## Dependency Graph

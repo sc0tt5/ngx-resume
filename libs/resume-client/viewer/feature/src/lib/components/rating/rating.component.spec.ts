@@ -1,4 +1,4 @@
-import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { RatingComponent } from './rating.component';
@@ -7,21 +7,24 @@ describe('RatingComponent', () => {
   let component: RatingComponent;
   let fixture: ComponentFixture<RatingComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [RatingComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(RatingComponent);
     component = fixture.componentInstance;
-    component.rating = 3;
-    component.max = 5;
+    fixture.componentRef.setInput('rating', 3);
+    fixture.componentRef.setInput('max', 5);
+    fixture.componentRef.setInput('name', 'Angular');
     fixture.detectChanges();
   });
 
-  it('should render the rating with the right active state', fakeAsync(() => {
+  it('should render the rating with the right active state', () => {
     const ratingPercent = fixture.debugElement.queryAll(By.css('.skill-level'));
-    const styleWidth = ratingPercent[0].nativeNode.style.width;
-    expect(styleWidth).toEqual(`${(component.rating / component.max) * 100}%`);
-  }));
+    const styleWidth = (ratingPercent[0].nativeElement as HTMLElement).style.width;
+
+    expect(component).toBeTruthy();
+    expect(styleWidth).toEqual('60%');
+  });
 });
