@@ -6,18 +6,18 @@
   "projectType": "library",
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
+      "executor": "@angular/build:unit-test",
       "outputs": ["{workspaceRoot}/tmp/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/resume-client/viewer/feature/jest.config.ts",
-        "passWithNoTests": false
+        "buildTarget": "resume-client:build:development",
+        "tsConfig": "libs/resume-client/viewer/feature/tsconfig.spec.json",
+        "runner": "vitest",
+        "coverageReporters": ["json-summary", "json", "html", "text", "lcov"],
+        "runnerConfig": "libs/resume-client/viewer/feature/vitest.config.mts"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:resume-client-viewer", "type:feature"]

@@ -1,21 +1,37 @@
-import { AsyncPipe, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
+import { Resume } from '@resume/shared/types';
 
-import { ResumeService } from '@resume/shared/data-access';
-
+import { Title } from '@angular/platform-browser';
 import { MainComponent } from '../components/main/main.component';
-import { RatingComponent } from '../components/rating/rating.component';
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
 
 @Component({
-  standalone: true,
-  imports: [AsyncPipe, MainComponent, NgIf, RatingComponent, SidebarComponent],
+  imports: [MainComponent, SidebarComponent],
   templateUrl: './viewer.component.html',
-  styleUrl: './viewer.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './viewer.component.scss'
 })
-export class ViewerComponent {
-  private readonly resume = inject(ResumeService);
-  readonly loaded$ = this.resume.loaded$;
-  readonly resume$ = this.resume.resume$;
+export class ViewerComponent implements OnInit {
+  readonly resume = input.required<Resume>();
+
+  private readonly titleService = inject(Title);
+
+  ngOnInit(): void {
+    this.updateDocumentTitle();
+  }
+
+  private buildFullName(): string {
+    const resume = this.resume();
+    if (resume) {
+      const { firstname, lastname } = resume.sidebar.header;
+      return `${firstname} ${lastname}`;
+    }
+    return '';
+  }
+
+  private updateDocumentTitle(): void {
+    const fullName = this.buildFullName();
+    if (fullName) {
+      this.titleService.setTitle(`Resume - ${fullName}`);
+    }
+  }
 }

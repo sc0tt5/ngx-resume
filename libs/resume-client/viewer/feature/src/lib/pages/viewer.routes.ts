@@ -1,12 +1,12 @@
 import { Route } from '@angular/router';
 
 import { ViewerComponent } from './viewer.component';
-import { canActivateViewer } from './viewer.guard';
+import { resolveViewer } from './viewer.resolver';
 
 export const viewerRoutes: Route[] = [
   {
     path: '',
     component: ViewerComponent,
-    canActivate: [canActivateViewer]
+    resolve: { resume: resolveViewer }
   }
 ];

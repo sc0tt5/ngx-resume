@@ -1,0 +1,44 @@
+/* stylelint-disable no-invalid-position-at-import-rule, scss/dollar-variable-pattern */
+@use 'sass:map';
+@use '../utilities/variables' as resume;
+@import 'bootstrap/scss/functions';
+
+$primary: resume.$primary;
+$secondary: resume.$secondary;
+$light: resume.$light;
+$dark: resume.$dark;
+$theme-colors: resume.$theme-colors;
+
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+
+// reduce generated css - start with an empty map, then copy only the what is used
+$resume-utilities: ();
+
+@each $name in display, position, border-top, border-end, width, padding-top, padding-bottom, font-weight, line-height,
+  text-transform, color, background-color
+{
+  $resume-utilities: map.set(
+    $resume-utilities,
+    $name,
+    map.merge(
+      map.get($utilities, $name),
+      (
+        responsive: false,
+        print: false
+      )
+    )
+  );
+}
+
+$utilities: $resume-utilities;
+
+@import 'bootstrap/scss/utilities/api';
